@@ -1,0 +1,38 @@
+.onboardingLayout {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  .inputItem {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .illustration {
+      height: 7rem;
+      .vector {
+        margin-top: -17rem;
+      }
+    }
+
+    .content {
+      width: 50%;
+      align-self: center;
+      z-index: 10;
+    }
+  }
+
+  .imageItem {
+    width: 50%;
+
+    img {
+      width: 50vw;
+      object-fit: cover;
+      height: 99vh;
+    }
+  }
+}
