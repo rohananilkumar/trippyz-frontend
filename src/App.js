@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard"
 import { Route } from "react-router-dom";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/signin",
     element: <SignIn />,
   },
+  {
+    path:"/dashboard",
+    element:<Dashboard />
+  }
 ]);
 
 function App() {
