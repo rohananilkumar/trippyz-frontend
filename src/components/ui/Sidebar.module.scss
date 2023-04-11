@@ -1,12 +1,35 @@
+
+.in{
+
+  margin: 0;
+  padding: 0;
+ 
+  
+position: relative;
+width: 300px;
+height: 720px;
+left: 0px;
+top: 0px;
+
+
+/* Primary/Gradient */
+
+background: linear-gradient(172.39deg, rgba(5, 25, 55, 0.92) 0%, rgba(0, 53, 89, 0.92) 27.6%, rgba(0, 83, 104, 0.92) 54.69%, rgba(0, 111, 93, 0.92) 78.12%, rgba(0, 136, 59, 0.92) 99.48%);
+ 
+
+}
+
 .button {
     background: #E9E9E9;
     box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.5);
     color: white;
     height: 2.5rem;
-    width: 100%;
+    width: 60%;
     border: none;
-
-  
+    display: flex;
+    margin-left: 3rem;
+    
+   
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;

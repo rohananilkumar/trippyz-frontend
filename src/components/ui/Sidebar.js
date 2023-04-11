@@ -11,7 +11,7 @@ import {BiMapAlt} from "react-icons/bi"
 const Sidebar = () => {
   return (
     
-    <div>
+    <div className={styles.in}>
     <Branding />
     <FaSignOutAlt />
     <Signoutbutton />
