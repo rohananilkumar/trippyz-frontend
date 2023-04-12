@@ -1,4 +1,19 @@
 .dash{
     background-color: #E9E9E9;
+    display: grid;
+    grid-template-columns: 30% 50%;
+    gap:3%;
+
+    
+    
 }
+
+    .header{
+        font-family: "Poppins";
+      font-style: regular;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 48px;
+    }
+
 

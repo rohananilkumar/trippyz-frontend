@@ -6,7 +6,13 @@ import Header from "../components/ui/Header"
 const Details = () => {
   return (
     <div className={styles.dash}>
-   <Sidebar />
+     <Sidebar />
+     <div>
+      <Header title="Hello There !"
+        className={styles.header}/>
+      <Header tagLine={"Let's collect some data to plan your route"}
+        className={styles.tagline}/>
+     </div>
 
    </div>
   )
