@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     
     <div className={styles.in}>
-    <Branding />
+    <Branding className={styles.branding}/>
     <FaSignOutAlt />
     <Signoutbutton />
     <h5>Route Types</h5>

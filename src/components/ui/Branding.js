@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./Branding.module.scss";
 import logo from "../../assets/Icons/logo.svg";
 
-const Branding = () => {
+const Branding = (className) => {
   return (
-    <div className={styles.intro}>
+    <div className={`${styles.intro} ${className}`}>
       <img src={logo} alt="logo" />
       <div className={styles.content}>
         <div className={styles.header}>Trippyz</div>
