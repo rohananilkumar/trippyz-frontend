@@ -2,6 +2,7 @@
   display: flex;
   img {
   }
+ 
   .content {
     .header {
       font-family: "Poppins";
@@ -19,4 +20,7 @@
       line-height: 18px;
     }
   }
+}
+.applogo {
+  fill: white;
 }

@@ -23,7 +23,7 @@ background: linear-gradient(172.39deg, rgba(5, 25, 55, 0.92) 0%, rgba(0, 53, 89,
     background: #E9E9E9;
     box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.5);
     color: white;
-    height: 2rem;
+    height: 2.5rem;
     width: 70%;
     border: none;
     display: flex;
@@ -35,14 +35,15 @@ background: linear-gradient(172.39deg, rgba(5, 25, 55, 0.92) 0%, rgba(0, 53, 89,
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 30px;
+    line-height: 37px;
     justify-content:center;
+   /* text-align:center;*/
     
     
     /* identical to box height */
   
    
-   text-align:right;
+   
 
   
     color: #000000;
@@ -60,4 +61,9 @@ background: linear-gradient(172.39deg, rgba(5, 25, 55, 0.92) 0%, rgba(0, 53, 89,
  
  .titleroute{
   color: white;
+ }
+
+ .brand{
+  color: white;
+  margin-top: 8%;
  }
