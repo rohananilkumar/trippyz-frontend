@@ -3,6 +3,7 @@ import styles from "./Dashboard.module.scss"
 import Sidebar from "../components/ui/Sidebar"
 import Title from "../components/ui/Title"
 import LabelledInput from "../components/ui/LabelledInput"
+import PrimaryButton from "../components/ui/PrimaryButton"
 
 
 const Details = () => {
@@ -30,7 +31,15 @@ const Details = () => {
           console.log(x);
         }}
         className={styles.but}/>
-
+    <h8 className={styles.inquiry}>Do you have a start, end time</h8>
+    <div className={styles.combine}>
+    <PrimaryButton  
+          label={"Yes"}
+          className={styles.smallbut}/>
+    <PrimaryButton  
+          label={"No"}
+          className={styles.smallbut}/>
+    </div>
     <LabelledInput 
               
               label={"What is the duration of the trip?"}

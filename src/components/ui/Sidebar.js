@@ -3,6 +3,7 @@ import styles from "./Sidebar.module.scss"
 import Branding from "./Branding"
 import Signoutbutton from "./Signoutbutton"
 import PrimaryButton from "./PrimaryButton"
+//import { IconContext } from "react-icons"
 
 import {FaSignOutAlt} from "react-icons/fa"
 import {BiMapAlt} from "react-icons/bi"
@@ -10,12 +11,16 @@ import {BiMapAlt} from "react-icons/bi"
 
 const Sidebar = () => {
   return (
-    
+   // <IconContext.Provider value={{  }}>
     <div className={styles.in}>
     <Branding className={styles.branding}/>
     <FaSignOutAlt />
-    <Signoutbutton />
-    <h5>Route Types</h5>
+    <PrimaryButton  
+      label={"SIgnOut"} 
+      className={styles.button} />
+    <div className={styles.sidebutton}>
+    <h5 className={styles.titleroute}>Route Types</h5>
+    
     <BiMapAlt />
     <PrimaryButton  
       label={"Tightly Planned Routes"} 
@@ -35,10 +40,10 @@ const Sidebar = () => {
       className={styles.button}
      />
     
-    
+    </div>
 
     </div>
-    
+   //</IconContext.Provider>
   )
 }
 

@@ -23,24 +23,41 @@ background: linear-gradient(172.39deg, rgba(5, 25, 55, 0.92) 0%, rgba(0, 53, 89,
     background: #E9E9E9;
     box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.5);
     color: white;
-    height: 2.5rem;
-    width: 60%;
+    height: 2rem;
+    width: 70%;
     border: none;
     display: flex;
     margin-left: 3rem;
+    
     
    
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 21px;
+    line-height: 30px;
+    justify-content:center;
+    
+    
     /* identical to box height */
   
-    text-align: center;
+   
+   text-align:right;
+
   
     color: #000000;
   }
- .branding{
+ .map{
+  position: absolute;
+  left: 10%;
+  top:16%;
   
+ }
+
+ .sidebutton{
+  margin-top: 40%;
+ }
+ 
+ .titleroute{
+  color: white;
  }

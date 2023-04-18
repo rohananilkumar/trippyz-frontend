@@ -11,16 +11,32 @@
 }
 .buttons{
   display: flex;
-flex-direction: column;
-align-items: flex-end;
-padding: 0px;
-gap: 22px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 22px;
 
 
-position: absolute;
-width: 504px;
-height: 504px;
-left: 647px;
-top: 236px;
+  position: absolute;
+  width: 504px;
+  height: 504px;
+  left: 647px;
+  top: 236px;
 
+}
+
+.smallbut{
+  width: 14rem;
+  margin-right: 10%;
+  background: white;
+  color: black;
+}
+
+.inquiry{
+  text-align: center;
+}
+
+.combine{
+  display: inline-flex;
+  gap:0.1rem;
 }
