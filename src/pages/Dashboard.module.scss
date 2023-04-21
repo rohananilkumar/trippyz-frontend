@@ -14,14 +14,14 @@
   flex-direction: column;
   align-items: flex-end;
   padding: 0px;
-  gap: 13px;
+  gap: 10px;
 
 
   position: absolute;
   width: 504px;
   height: 504px;
   left: 647px;
-  top: 170px;
+  top: 160px;
 
 }
 
@@ -40,4 +40,45 @@
 .combine{
   display: inline-flex;
   gap:0.1rem;
+}
+
+.next{
+  width: 25.3rem;
+  margin-right: 9%;
+  margin-top:3%;
+}
+
+.dest{
+  position: absolute;
+  width: 0.7rem;
+  top: 2.8rem;
+  left: 4rem;
+}
+.start{
+  position: absolute;
+  width: 0.7rem;
+  top: 8.3rem;
+  left: 4rem;
+}
+
+.yes{
+  position: absolute;
+  height: 2.5rem;
+  left: 3.4rem;
+}
+.no{
+  position: absolute;
+  height: 2.5rem;
+  left: 17.5rem;
+}
+.calendarstart{
+position: absolute;
+left: 4rem;
+top: 23.8rem;
+}
+.calendarend{
+position: absolute;
+left: 18rem;
+top: 23.8rem;
+
 }
