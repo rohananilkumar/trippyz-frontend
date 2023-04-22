@@ -1,0 +1,90 @@
+.dash{
+    background-color: #E9E9E9;
+    display: grid;
+    grid-template-columns: 30% 50%;
+    gap:3%; 
+}
+.but{
+  display: grid;
+  width: 25rem;
+  margin-right: 10%;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 10px;
+
+
+  position: absolute;
+  width: 504px;
+  height: 504px;
+  left: 647px;
+  top: 240px;
+
+}
+
+.smallbut{
+  width: 25rem;
+  margin-right: 10%;
+  background: rgb(129, 234, 166);
+  color: black;
+}
+
+.inquiry{
+ margin-right: 30%;
+  
+}
+
+.combine{
+  display: inline-flex;
+  gap:0.1rem;
+}
+
+.next{
+  width: 25.3rem;
+  margin-right: 9%;
+  margin-top:3%;
+}
+
+.dest{
+  position: absolute;
+  width: 0.7rem;
+  top: 2.8rem;
+  left: 4rem;
+}
+.start{
+  position: absolute;
+  width: 0.7rem;
+  top: 8.3rem;
+  left: 4rem;
+}
+
+.yes{
+  position: absolute;
+  height: 2.5rem;
+  left: 3.4rem;
+}
+.no{
+  position: absolute;
+  height: 2.5rem;
+  left: 17.5rem;
+}
+.calendarstart{
+position: absolute;
+left: 4rem;
+top: 23.8rem;
+}
+.calendarend{
+position: absolute;
+left: 18rem;
+top: 23.8rem;
+
+}
+
+.welcome{
+    left: 50%;
+    top: 8%;
+    right: 40%;
+}

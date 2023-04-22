@@ -3,7 +3,9 @@ import styles from "./Primary.module.scss";
 
 const PrimaryButton = ({ label, onClick, className }) => {
   return (
-    <button className={`${styles.primaryButton} ${className}`}>
+    <button 
+    className={`${styles.primaryButton} ${className}`}
+    onClick={onClick}>
       {label}
       
     </button>
