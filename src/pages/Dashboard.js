@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./Dashboard.module.scss"
+import DashboardLayout from "../components/layouts/DashboardLayout"
 import Sidebar from "../components/ui/Sidebar"
 import Title from "../components/ui/Title"
 import LabelledInput from "../components/ui/LabelledInput"
@@ -13,12 +14,19 @@ import dest from "../assets/Icons/dest.svg"
 
 const Details = () => {
   return (
+    
+    
     <div className={styles.dash}>
+      
      <Sidebar />
+     <DashboardLayout/>
      <Title 
       titlefirst={"Hello"} 
       titlesec={"There!"}
       tagLine={"Lets collect some data to plan your route"}/>
+    
+     
+     
 
 <div className={styles.buttons}>
     <h8 className={styles.inquiry}>Where are you headed to?</h8>
@@ -78,7 +86,7 @@ const Details = () => {
     </div>
 
    </div>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;

@@ -13,6 +13,7 @@
     display: grid;
     margin-left: 35%;
     margin-top: 5%;
+   
     grid-template-columns: max-content max-content;
     gap:1rem;
 }
@@ -34,6 +35,8 @@
     font-weight: 390;
     font-size: 18px;
     line-height: 36px;
+    margin-left: 10%;
+    margin-right: -9rem;
     /* identical to box height */
   
     text-align: center;
@@ -43,4 +46,8 @@
   
     color: #181818;
   }
-  
+  .title{
+    position: absolute;
+    left: 47%;
+    z-index: 800;
+  }
