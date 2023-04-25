@@ -32,7 +32,11 @@ const SignUp = () => {
 
       <PrimaryButton
         label={"Create Account"}
-        onClick={() => {}}
+        //onClick={() => {}}
+        onClick={(x) => {
+          console.log('Button clicked!');
+        }}
+        to={"/successfull_login"}
         className={styles.cta}
       />
     </OnboardingLayout>

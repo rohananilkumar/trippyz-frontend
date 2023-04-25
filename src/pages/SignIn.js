@@ -6,7 +6,11 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 import Header from "../components/ui/Header";
 
 const SignIn = () => {
+  const handleClick = () => {
+    console.log('Button clicked!');
+  };
   return (
+    
     <OnboardingLayout>
       <Header title="Welcome" tagLine={"We are your destination"} />
       <LabelledInput
@@ -25,7 +29,11 @@ const SignIn = () => {
 
       <PrimaryButton
         label={"Take me in"}
-        onClick={() => {}}
+        //onClick={() => {}}
+        onClick={(x) => {
+          console.log('Button clicked!');
+        }}
+        to={"/welcome"}
         className={styles.cta}
       />
     </OnboardingLayout>

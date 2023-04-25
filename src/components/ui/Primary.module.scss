@@ -6,7 +6,7 @@
   width: 100%;
   border: none;
   
-
+  transition: transform 0.2s ease-out;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -17,4 +17,7 @@
   text-align: center;
 
   color: #ffffff;
+}
+.primaryButton:hover{
+  transform: scale(1.05);
 }

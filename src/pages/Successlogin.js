@@ -4,7 +4,7 @@ import Header from '../components/ui/Header'
 import done from '../assets/Icons/done.svg'
 import styles from './Successlogin.module.scss'
 import PrimaryButton from '../components/ui/PrimaryButton'
-import SignIn from './SignIn'
+
 const Successlogin = () => {
   return (
     <div>
@@ -13,7 +13,11 @@ const Successlogin = () => {
       <img src={done} alt="done" className={styles.done}/>
       <PrimaryButton
         label={"Signin"}
-        onClick={() => {}}
+        //onClick={() => {}}
+        onClick={(x) => {
+          console.log('Button clicked!');
+        }}
+        to={"/signin"}
         className={styles.cta}
       />
     </div>
