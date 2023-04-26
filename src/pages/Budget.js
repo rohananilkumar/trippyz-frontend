@@ -70,6 +70,8 @@ const Details = () => {
     <PrimaryButton  
           label={"Next >"}
           className={styles.next}
+          to={"/parameters"}
+          
           />
 
 

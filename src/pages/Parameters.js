@@ -57,6 +57,8 @@ const Details = () => {
     <PrimaryButton  
           label={"See my routes! >"}
           className={styles.next}
+          to={"/route_result_one"}
+          
           />
 
 

@@ -43,8 +43,10 @@ const Details = () => {
 
 
     <PrimaryButton  
-          label={"Next >"}
+          label={"I like to be surprised"}
           className={styles.next}
+          to={"/dashboard"}
+          
           />
 
 
