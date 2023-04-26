@@ -4,7 +4,7 @@ import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '35%',
-  height: '300px',
+  height: '250px',
 };
 
 const center = {
@@ -12,9 +12,9 @@ const center = {
   lng: 75.414001,
 };
 
-const Mapview = () => {
+const Mapview = ({className}) => {
   return (
-    <div className={styles.viewmap}>
+    <div  className={`${styles.viewmap} ${className}`}>
     <LoadScript
       googleMapsApiKey="AIzaSyDJAJHPrnnTEADpRrH44q19tXlOzoxWjgA"
     >

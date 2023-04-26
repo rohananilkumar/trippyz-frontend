@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./Dashboard.module.scss"
+import styles from "./Routeone.module.scss"
 import DashboardLayout from "../components/layouts/DashboardLayout"
 import Sidebar from "../components/ui/Sidebar"
 import Title from "../components/ui/Title"
@@ -18,36 +18,31 @@ const Details = () => {
   return (
     
     
-    <div className={styles.dash}>
+<div className={styles.dash}>
       
-     <Sidebar />
-     
- 
-     
-     <div className={styles.cardview}>
-    {/*<Mapview/>*/}
+    <Sidebar />
+    <div>
+    <Mapview
+        className={styles.mapstyle}/>
+    
+      
         <Card
+        className={styles.cardview}
         title={"Route 1"}
-        // imageurl={location}
-        body={"dhbjxnasmhuin"}/>
-
-
-
-</div>
-<div>
-
-</div>
-     <Title 
+        duration={"3 days, 12 hours"}
+        expense={"2000"}/>
+    
+    </div>
+    
+   
+    <Title 
       titlefirst={"Route"} 
       titlesec={"Result!"}
-     />
-    
-     
-     
-
+    />
+   
   {/*<DashboardLayout/>*/}
 
-   </div>
+</div>
   );
 };
 

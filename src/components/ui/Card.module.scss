@@ -28,7 +28,37 @@
 .card_title{
     
     color: white;
+    font-size: 20px;
 }
 .card_body{
     color: white;
+}
+.btn{
+    display: inline-flex;
+    gap: 10%;
+    
+}
+.smallbut{
+    background: none;
+    color: white;
+    border-color: white;
+}
+.contents{
+    margin-left: 5%;
+    margin-bottom: 5%;
+    font-weight: 0;
+    font-size: 13px;
+
+}
+.clock{
+    display: inline-flex;  
+}
+.expense{
+    display: flex;
+}
+.money{
+    height: 1rem;
+}
+.btn{
+    margin-top: 5%;
 }
