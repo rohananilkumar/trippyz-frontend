@@ -15,7 +15,7 @@ import Successlogin from "./pages/Successlogin";
 
 const router = createBrowserRouter([
   {
-    path: "/signup",
+    path: "/",
     element: <SignUp />,
   },
   {
