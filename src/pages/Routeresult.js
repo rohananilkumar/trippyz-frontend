@@ -6,6 +6,7 @@ import Title from "../components/ui/Title"
 import Button from "../components/ui/Button"
 import Card from "../components/ui/Card"
 import location from '../assets/Icons/location.svg'
+import Mapview from "../components/ui/Mapview"
 
 
 const Details = () => {
@@ -15,8 +16,9 @@ const Details = () => {
     <div className={styles.dash}>
       
      <Sidebar />
-
-
+<div>
+<Mapview/>
+</div>
 
     <div>
         <h1>Heloo</h1>
@@ -33,6 +35,7 @@ const Details = () => {
       />
     
     <DashboardLayout/>
+  
      
 
 {/*<div className={styles.cardview}>

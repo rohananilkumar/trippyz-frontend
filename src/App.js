@@ -6,7 +6,8 @@ import Budget from "./pages/Budget"
 import Parameters from "./pages/Parameters"
 import Routeresult from "./pages/Routeresult"
 import Welcome from "./pages/Welcome"
-import { Route } from "react-router-dom";
+import Routeone from "./pages/Routeone"
+//import { Route } from "react-router-dom";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./pages/SignIn";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path:"/successfull_login",
     element:<Successlogin/>
+  },
+  {
+    path:"/route_result_one",
+    element:<Routeone />
   }
 ]);
 

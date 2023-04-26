@@ -8,12 +8,14 @@
     z-index: 900;
     position:absolute;
     background: #051937;
-    transition: 0.3s;
+    transition: 0.2s ease-out;
+    margin-top: 7%;
+    margin-left: 16%;
    
 }
 .card:hover{
-    transform: scale(1,1);
-    box-shadow: 0px 0px 15px -5px;
+    transform: scale(1.04);
+  
 }
 .image{
     size: 30rem;
