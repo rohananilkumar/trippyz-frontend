@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react";
 import styles from "./Dashboard.module.scss"
 import DashboardLayout from "../components/layouts/DashboardLayout"
 import Sidebar from "../components/ui/Sidebar"
@@ -10,9 +10,30 @@ import yes from "../assets/Icons/yes.svg"
 import no from "../assets/Icons/no.svg"
 import start from "../assets/Icons/start.svg"
 import dest from "../assets/Icons/dest.svg"
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Details = () => {
+      const [startDate, setStartDate] = useState(null);
+      const [endDate, setEndDate] = useState(null);
+    
+      const handleStartDateChange = (date) => {
+        setStartDate(date);
+      };
+    
+      const handleEndDateChange = (date) => {
+        setEndDate(date);
+      };
+
+      
+       const handleSubmit = () => {
+            console.log("Start Date:", startDate);
+            console.log("End Date:", endDate);
+            // Perform further actions with the selected dates
+      };
+
+      
+
   return (
     
     
@@ -45,17 +66,7 @@ const Details = () => {
           console.log(x);
         }}
         className={styles.but}/>
-    <h8 className={styles.inquiry}>Do you have a start, end time</h8>
-    <div className={styles.combine}>
-    <img src={yes} alt="yes" className={styles.yes}/>
-    <PrimaryButton  
-          label={"Yes"}
-          className={styles.smallbut}/>
-    <img src={no} alt="no" className={styles.no}/>
-    <PrimaryButton  
-          label={"No"}
-          className={styles.smallbut}/>
-    </div>
+    
     <h8 className={styles.inquiry}>What is the duration of the trip?</h8>
     <LabelledInput  
               //label={"What is the duration of the trip?"}
@@ -64,6 +75,14 @@ const Details = () => {
             }}
             className={styles.but}/>
 
+      <h8 className={styles.inquiry}>What is the radius coverage (km)?</h8>
+      <LabelledInput  
+              //label={"What is the duration of the trip?"}
+              onChange={(x) => {
+              console.log(x);
+            }}
+            className={styles.but}/>
+{/*
 <h8 className={styles.inquiry}>What is the start, end date?</h8>
     <div className={styles.combine}>
     <img src={calendar} alt="calendar" className={styles.calendarstart}/>
@@ -90,5 +109,39 @@ const Details = () => {
    </div>
   );
 };
+*/}
 
+
+      <h8 className={styles.inquiry}>Select Start and End Dates</h8>
+      <div className={styles.combine}>
+      <div>
+        <label>Start Date:</label>
+        
+        <DatePicker
+          selected={startDate}
+          onChange={handleStartDateChange}
+          className={styles.datepicker}
+          //placeholderText="Select start date"
+        />
+      </div>
+      <div>
+        <label>End Date:</label>
+        <DatePicker
+          selected={endDate}
+          onChange={handleEndDateChange}
+          className={styles.datepicker}
+          //placeholderText="Select end date"
+        />
+        </div>
+      </div>
+      {/*<button onClick={handleSubmit}>Submit</button>*/}
+      <PrimaryButton  
+          label={"Next >"}
+          className={styles.next}
+          to={"/budget_details"}/>
+    
+   </div>
+   </div>
+  );
+};
 export default Details;

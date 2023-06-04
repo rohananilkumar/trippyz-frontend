@@ -26,16 +26,16 @@ const Details = () => {
 
 <div className={styles.buttons}>
     
-    <PrimaryButton  
+     <PrimaryButton  
+          label={"Lightly Planned Routes"}
+          className={styles.smallbut}/>
+
+     <PrimaryButton  
           label={"Tightly Planned Routes"}
           className={styles.smallbut}/>
 
-    <PrimaryButton  
-          label={"Lightly Planned Routes"}
-          className={styles.smallbut}/>
-
-<PrimaryButton  
-          label={"Lightly Planned Routes"}
+      <PrimaryButton  
+          label={"Normal Planned Routes"}
           className={styles.smallbut}/>
     
    

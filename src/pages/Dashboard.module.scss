@@ -41,6 +41,7 @@
 .combine{
   display: inline-flex;
   gap:0rem;
+  margin-left: 3rem;
 }
 
 .next{
@@ -82,4 +83,9 @@ position: absolute;
 left: 18rem;
 top: 23.8rem;
 
+}
+
+.datepicker{
+  width: 11rem;
+  height: 30px;
 }
