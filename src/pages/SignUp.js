@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SignUp.module.scss";
 import OnboardingLayout from "../components/layouts/OnboardingLayout";
 import LabelledInput from "../components/ui/LabelledInput";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Header from "../components/ui/Header";
+
+
 
 const SignUp = () => {
   return (
