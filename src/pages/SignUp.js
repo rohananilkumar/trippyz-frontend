@@ -5,7 +5,7 @@ import LabelledInput from "../components/ui/LabelledInput";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Header from "../components/ui/Header";
 import axiosInstance from "../utils/axios";
-import { useState } from "react";
+//import { useState } from "react";
 
 
 
@@ -17,7 +17,7 @@ const SignUp = () => {
   });
 
   const onSubmitclick = () => {
-    axiosInstance.post("/auth/register", data);
+    axiosInstance.post("auth/register", data);
   };
 
   return (
