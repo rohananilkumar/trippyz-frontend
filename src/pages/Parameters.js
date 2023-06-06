@@ -7,6 +7,7 @@ import LabelledInput from "../components/ui/LabelledInput"
 import PrimaryButton from "../components/ui/PrimaryButton"
 import truck from "../assets/Icons/truck.svg"
 import star from "../assets/Icons/star.svg"
+import axiosInstance from "../utils/axios";
 //import percentage from "../assets/Icons/%.svg"
 
 

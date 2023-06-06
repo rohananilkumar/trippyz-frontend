@@ -7,6 +7,7 @@ import LabelledInput from "../components/ui/LabelledInput"
 import PrimaryButton from "../components/ui/PrimaryButton"
 import user from "../assets/Icons/users.svg"
 import dollar from "../assets/Icons/dollar-sign.svg"
+import axiosInstance from "../utils/axios";
 
 
 const Details = () => {

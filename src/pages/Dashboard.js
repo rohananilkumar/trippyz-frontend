@@ -12,8 +12,13 @@ import start from "../assets/Icons/start.svg"
 import dest from "../assets/Icons/dest.svg"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axiosInstance from "../utils/axios";
+import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Details = () => {
+
+  {/*
       const [startDate, setStartDate] = useState(null);
       const [endDate, setEndDate] = useState(null);
     
@@ -32,7 +37,39 @@ const Details = () => {
             // Perform further actions with the selected dates
       };
 
-      
+    */}
+
+    const [destination, setDestination] = useState("");
+    const [startingPoint, setStartingPoint] = useState("");
+    const [duration, setDuration] = useState("");
+    const [radius, setRadius] = useState("");
+    const navigate = useNavigate();
+
+
+
+    const handleSubmit = () => {
+      const data = {
+        destination,
+        startingPoint,
+        duration,
+        radius
+      };
+    
+      // Perform further actions with the form data, such as sending it to an API
+      axiosInstance.post("routes/get-route", data)
+        .then(response => {
+          // Handle the response if needed
+        })
+        .catch(error => {
+          // Handle errors if any
+        });
+    
+      // Navigate to the next page using React Router's history object
+      <Navigate to="/budget_details" />;
+      navigate("/budget_details");
+    };
+    
+
 
   return (
     
@@ -52,36 +89,29 @@ const Details = () => {
 <div className={styles.buttons}>
     <h8 className={styles.inquiry}>Where are you headed to?</h8>
     <img src={dest} alt="destination" className={styles.dest}/>
-     <LabelledInput  
-    
-      onChange={(x) => {
-      console.log(x);
-     }}
-     className={styles.but}/>
+    <LabelledInput
+      onChange={(event) => setDestination(event.target.value)}
+      className={styles.but}
+    />
 
     <h8 className={styles.inquiry}>Where are you starting from?</h8>
     <img src={start} alt="start" className={styles.start}/>
-    <LabelledInput 
-          onChange={(x) => {
-          console.log(x);
-        }}
-        className={styles.but}/>
+    <LabelledInput
+      onChange={(event) => setStartingPoint(event.target.value)}
+      className={styles.but}
+    />
     
     <h8 className={styles.inquiry}>What is the duration of the trip?</h8>
-    <LabelledInput  
-              //label={"What is the duration of the trip?"}
-              onChange={(x) => {
-              console.log(x);
-            }}
-            className={styles.but}/>
+    <LabelledInput
+      onChange={(event) => setDuration(event.target.value)}
+      className={styles.but}
+    />
 
       <h8 className={styles.inquiry}>What is the radius coverage (km)?</h8>
-      <LabelledInput  
-              //label={"What is the duration of the trip?"}
-              onChange={(x) => {
-              console.log(x);
-            }}
-            className={styles.but}/>
+      <LabelledInput
+        onChange={(event) => setRadius(event.target.value)}
+        className={styles.but}
+      />
 {/*
 <h8 className={styles.inquiry}>What is the start, end date?</h8>
     <div className={styles.combine}>
@@ -109,7 +139,7 @@ const Details = () => {
    </div>
   );
 };
-*/}
+
 
 
       <h8 className={styles.inquiry}>Select Start and End Dates</h8>
@@ -134,12 +164,20 @@ const Details = () => {
         />
         </div>
       </div>
-      {/*<button onClick={handleSubmit}>Submit</button>*/}
+      <button onClick={handleSubmit}>Submit</button>*/}
+    {/*
       <PrimaryButton  
           label={"Next >"}
           className={styles.next}
           to={"/budget_details"}/>
-    
+    */}
+
+      <PrimaryButton
+        label={"Next >"}
+        className={styles.next}
+        onClick={handleSubmit}
+      />
+          
    </div>
    </div>
   );
