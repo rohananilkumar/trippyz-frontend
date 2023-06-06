@@ -6,6 +6,7 @@ import LabelledInput from "../components/ui/LabelledInput";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Header from "../components/ui/Header";
 import axiosInstance from "../utils/axios";
+import { addObjectToLocalStorage } from "../utils/localStorage";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -15,13 +16,13 @@ const SignIn = () => {
 
   const handleSubmit = () => {
     // Perform user login verification here
-    axiosInstance
+    const response = axiosInstance
       .post("auth/login", { email, password })
       .then((response) => {
         // Handle successful login
         console.log("Login successful");
         console.log(response.data); // Assuming the response contains user data or authentication token
-
+        addObjectToLocalStorage("token", response.data.token);
         // Navigate to the next page on successful login
         navigate("/welcome");
       })

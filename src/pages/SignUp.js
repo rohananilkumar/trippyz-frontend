@@ -7,8 +7,6 @@ import Header from "../components/ui/Header";
 import axiosInstance from "../utils/axios";
 //import { useState } from "react";
 
-
-
 const SignUp = () => {
   const [data, setData] = useState({
     name: undefined,
@@ -16,8 +14,9 @@ const SignUp = () => {
     password: undefined,
   });
 
-  const onSubmitclick = () => {
-    axiosInstance.post("auth/register", data);
+  const onSubmitclick = async () => {
+    const response = await axiosInstance.post("auth/register", data);
+    console.log(response.headers["x-auth-token"]);
   };
 
   return (
