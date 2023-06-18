@@ -90,14 +90,14 @@ const Details = ({ submit }) => {
 
       <div className={styles.buttons}>
         <h8 className={styles.inquiry}>Where are you headed to?</h8>
-        <img src={dest} alt="destination" className={styles.dest} />
+       {/* <img src={dest} alt="destination" className={styles.dest} />*/}
         <LabelledInput
           onChange={(event) => setDestination(event.target.value)}
           className={styles.but}
         />
 
         <h8 className={styles.inquiry}>Where are you starting from?</h8>
-        <img src={start} alt="start" className={styles.start} />
+       {/* <img src={start} alt="start" className={styles.start} />*/}
         <LabelledInput
           onChange={(event) => setStartingPoint(event.target.value)}
           className={styles.but}
