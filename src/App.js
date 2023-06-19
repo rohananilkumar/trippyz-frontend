@@ -1,3 +1,15 @@
+import "./App.css";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Dash from "./components/ui/Dash";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import Successlogin from "./pages/Successlogin";
+
+{/*
 import logo from "./logo.svg";
 import "./App.css";
 import SignUp from "./pages/SignUp";
@@ -9,6 +21,7 @@ import Welcome from "./pages/Welcome";
 import Routeone from "./pages/Routeone";
 import Routetwo from "./pages/Routetwo";
 import Routethree from "./pages/Routethree";
+
 //import { Route } from "react-router-dom";
 
 import {
@@ -22,6 +35,7 @@ import { useState } from "react";
 import axiosInstance from "./utils/axios";
 import { getObjectFromLocalStorage } from "./utils/localStorage";
 import { useEffect } from "react";
+import MainLayout from "./components/layouts/MainLayout";
 
 function App() {
   const [data, setData] = useState({
@@ -114,9 +128,44 @@ function App() {
       path: "/route_result_three",
       element: <Routethree />,
     },
+    {
+      path: "/final",
+      element: <MainLayout />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
 }
+
+export default App;
+
+*/}
+
+
+
+function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <SignUp />,
+    },
+    {
+      path: "/successfull_login",
+      element: <Successlogin />,
+    },
+    {
+      path: "/signin",
+      element: <SignIn />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dash/>,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+}
+
 
 export default App;
