@@ -29,7 +29,7 @@ const Details = () => {
 
 <div className={styles.buttons}>
     <h8 className={styles.inquiry}>What is your total trip budget?</h8>
-    <img src={dollar} alt="dollar" className={styles.dollar}/>
+   {/* <img src={dollar} alt="dollar" className={styles.dollar}/>*/}
      <LabelledInput  
     
       onChange={(x) => {

@@ -48,6 +48,7 @@ const SignUp = () => {
 
       <LabelledInput
         label={"Password"}
+        type="password"
         onChange={(password) => {
           setData((x) => {
             return {
@@ -60,6 +61,7 @@ const SignUp = () => {
 
       <PrimaryButton
         label={"Create Account"}
+        
         //onClick={() => {}}
         onClick={onSubmitclick}
         to={"/successfull_login"}
