@@ -1,15 +1,4 @@
-import "./App.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 
-import Dash from "./components/ui/Dash";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import Successlogin from "./pages/Successlogin";
-
-{/*
 import logo from "./logo.svg";
 import "./App.css";
 import SignUp from "./pages/SignUp";
@@ -136,36 +125,5 @@ function App() {
 
   return <RouterProvider router={router} />;
 }
-
-export default App;
-
-*/}
-
-
-
-function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <SignUp />,
-    },
-    {
-      path: "/successfull_login",
-      element: <Successlogin />,
-    },
-    {
-      path: "/signin",
-      element: <SignIn />,
-    },
-    {
-      path: "/dashboard",
-      element: <Dash/>,
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
-}
-
 
 export default App;

@@ -6,6 +6,10 @@ import Title from "../components/ui/Title"
 import PrimaryButton from "../components/ui/PrimaryButton"
 import LabelledInput from "../components/ui/LabelledInput"
 
+import Card from "../components/ui/Card";
+import Mapview from "../components/ui/Mapview";
+import Map from "../components/ui/Mapview";
+
 
 
 const Details = () => {
@@ -233,6 +237,38 @@ const Details = () => {
       );
     }
 
+
+    else if (setNumber === 5) {
+      return (
+        <div className={styles.dash}>
+        <Sidebar />
+        
+       
+        <Card
+          className={styles.cardviewleft}
+          title={"Route 3"}
+          duration={"3 days, 12 hours"}
+          expense={"2000"}
+        />
+  
+        <div className={styles.mapone}>
+          <Mapview className={styles.mapstyle} />
+  
+          <Card
+            className={styles.cardview}
+            title={"Route 2"}
+            duration={"3 days, 12 hours"}
+            expense={"2000"}
+          />
+        </div>
+  
+        <Title titlefirst={"Route"} titlesec={"Result!"} />
+  
+        {/*<DashboardLayout/>*/}
+      </div>
+
+      );
+    }
     return null;
   };
 
@@ -244,54 +280,4 @@ return (
 );
 
 };
-    {/*
-  return (
-    
-    
-    <div className={styles.dash}>
-      
-     <Sidebar />
-     <DashboardLayout/>
-     <Title 
-    //  titlefirst={"Hello"} 
-      titlesec={"Hola!"}
-      tagLine={"Please select your preferred route configuration"}
-      className={styles.welcome}/>
-    
-     
-     
-
-<div className={styles.buttons}>
-    
-     <PrimaryButton  
-          label={"Lightly Planned Routes"}
-          className={styles.smallbut}/>
-
-     <PrimaryButton  
-          label={"Tightly Planned Routes"}
-          className={styles.smallbut}/>
-
-      <PrimaryButton  
-          label={"Normal Planned Routes"}
-          className={styles.smallbut}/>
-    
-   
-
-
-
-    <PrimaryButton  
-          label={"I like to be surprised"}
-          className={styles.next}
-          to={"/dashboard"}
-          
-          />
-
-
-
-    </div>
-
-   </div>
-  );
-};
-*/}
 export default Details;

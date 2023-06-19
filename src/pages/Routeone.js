@@ -9,7 +9,7 @@ import Mapview from "../components/ui/Mapview";
 import Map from "../components/ui/Mapview";
 
 const Details = ({ route }) => {
-  console.log(route);
+  
   return (
     <div className={styles.dash}>
       <Sidebar />

@@ -19,13 +19,13 @@ const center = {
 
 const Mapview = ({ className, coordinates }) => {
   console.log(coordinates);
-  if (!coordinates) return "no coordinates";
+  //if (!coordinates) return "no coordinates";
   return (
     <div className={`${styles.viewmap} ${className}`}>
       <LoadScript googleMapsApiKey="AIzaSyDJAJHPrnnTEADpRrH44q19tXlOzoxWjgA">
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={coordinates[0]}
+          center={center}
           zoom={12} // Set the initial center of the map
         >
           <Polyline
