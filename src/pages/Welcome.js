@@ -6,6 +6,9 @@ import Title from "../components/ui/Title"
 import PrimaryButton from "../components/ui/PrimaryButton"
 import LabelledInput from "../components/ui/LabelledInput"
 
+import axiosInstance from "../utils/axios";
+import { getObjectFromLocalStorage } from "../utils/localStorage";
+
 import Card from "../components/ui/Card";
 import Mapview from "../components/ui/Mapview";
 import Map from "../components/ui/Mapview";
@@ -13,6 +16,21 @@ import Map from "../components/ui/Mapview";
 
 
 const Details = () => {
+
+  const [data, setData] = useState({
+    dest: undefined,
+    start: undefined,
+    duration: undefined,
+    radius: undefined,
+    budget: "23423",
+    considerations: ["food", "stay"],
+    restaurantRatingPreference: 4,
+    roomForError: 40,
+    routeType: "normal-scheduled",
+    peopleCount: 2,
+  });
+  const [serverResponse, setServerResponse] = useState();
+
   const [activeSet, setActiveSet] = useState(1);
 
   const handleNext = () => {
@@ -245,12 +263,21 @@ const Details = () => {
         
        
         <Card
+          className={styles.cardviewright}
+          title={"Route 3"}
+          duration={"3 days, 12 hours"}
+          expense={"2000"}
+        />
+
+
+        <Card
           className={styles.cardviewleft}
           title={"Route 3"}
           duration={"3 days, 12 hours"}
           expense={"2000"}
         />
   
+
         <div className={styles.mapone}>
           <Mapview className={styles.mapstyle} />
   
