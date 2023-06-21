@@ -16,7 +16,19 @@ import Map from "../components/ui/Mapview";
 
 
 const Details = () => {
-
+ 
+  const [dest, setDestination] = useState("");
+  const [start, setStartingPoint] = useState("");
+  const [duration, setDuration] = useState("");
+  const [radius, setRadius] = useState("");
+  //const [radius, setMileage] = useState("");
+  const [peopleCount, setPeople] = useState("");
+  //const [room, setRoom] = useState("");
+  const [restaurantRatingPreference, setRating] = useState("");
+  const [routeType, setRouteType] = useState("");
+  const [budgetType, setBudget] = useState('');
+  
+  {/*
   const [data, setData] = useState({
     dest: undefined,
     start: undefined,
@@ -29,12 +41,68 @@ const Details = () => {
     routeType: "normal-scheduled",
     peopleCount: 2,
   });
+*/}
   const [serverResponse, setServerResponse] = useState();
+
+  const data = {
+    dest,
+    start,
+    duration,
+    radius,
+    budget: "23423",
+    considerations: ["food", "stay"],
+    restaurantRatingPreference,
+    roomForError: 40,
+    routeType,
+    peopleCount,
+    budgetType,
+  };
+
 
   const [activeSet, setActiveSet] = useState(1);
 
   const handleNext = () => {
+    if (activeSet === 4) {
+      console.log(data)
+      sendDataToBackend();
+    }
     setActiveSet(activeSet + 1);
+  };
+
+  const sendDataToBackend = async () => {
+    console.log("sending server request");
+    try {
+      const response = await axiosInstance.post('routes/get-route', data, {
+        headers: {
+          "x-auth-token": getObjectFromLocalStorage("token"),
+        },
+      });
+      setServerResponse(response.data);
+      console.log(response.data);
+      // Handle the response from the backend if needed
+    } catch (error) {
+      console.log("Error:", error.response);
+      // Handle any errors that occurred during the API call
+    }
+  };
+  {/*
+const handleInputChange = (event) => {
+  const { name, value } = event.target;
+  setData((prevData) => ({
+    
+    ...prevData,
+    [name]: value,
+    
+  }));
+};
+*/}
+
+
+  
+
+  const handleBudgetChange = (event) => {
+    setBudget(event.target.value);
+    console.log(event.target.value);
   };
 
   const renderFields = (setNumber) => {
@@ -57,15 +125,21 @@ const Details = () => {
     
      <PrimaryButton  
           label={"Lightly Planned Routes"}
-          className={styles.smallbut}/>
+          className={styles.smallbut}
+          onClick={() =>setRouteType("lightly-scheduled")}
+          />
 
      <PrimaryButton  
           label={"Tightly Planned Routes"}
-          className={styles.smallbut}/>
+          className={styles.smallbut}
+          onClick={() => setRouteType("tightly-scheduled")}
+          />
 
       <PrimaryButton  
           label={"Normal Planned Routes"}
-          className={styles.smallbut}/>
+          className={styles.smallbut}
+          onClick={() => setRouteType("normal-scheduled")}
+          />
     
    
 
@@ -101,26 +175,26 @@ const Details = () => {
         <h8 className={styles.inquiry}>Where are you headed to?</h8>
        {/* <img src={dest} alt="destination" className={styles.dest} />*/}
         <LabelledInput
-        //  onChange={(event) => setDestination(event.target.value)}
+          onChange={(event) => setDestination(event.target.value)}
           className={styles.but}
         />
 
         <h8 className={styles.inquiry}>Where are you starting from?</h8>
        {/* <img src={start} alt="start" className={styles.start} />*/}
         <LabelledInput
-        //  onChange={(event) => setStartingPoint(event.target.value)}
+          onChange={(event) => setStartingPoint(event.target.value)}
           className={styles.but}
         />
 
         <h8 className={styles.inquiry}>What is the duration of the trip?</h8>
         <LabelledInput
-       //   onChange={(event) => setDuration(event.target.value)}
+          onChange={(event) => setDuration(event.target.value)}
           className={styles.but}
         />
 
         <h8 className={styles.inquiry}>What is the radius coverage (km)?</h8>
         <LabelledInput
-       //   onChange={(event) => setRadius(event.target.value)}
+           onChange={(event) => setRadius(event.target.value)}
           className={styles.but}
         />
 
@@ -147,24 +221,38 @@ const Details = () => {
          className={styles.budget}/>
        
         
-        
+  {/*      
    
    <div className={styles.buttons}>
        <h8 className={styles.inquiry}>What is your total trip budget?</h8>
-      {/* <img src={dollar} alt="dollar" className={styles.dollar}/>*/}
+       <img src={dollar} alt="dollar" className={styles.dollar}/>
         <LabelledInput  
        
          onChange={(x) => {
          console.log(x);
         }}
         className={styles.but}/>
+
+      */}
+
+<div className={styles.buttons}>
+      <h8 className={styles.inquiry}>What kind of budget are you looking at?</h8>
+      <select
+        value={budgetType}
+        onChange={handleBudgetChange}
+        className={styles.selectbut}
+      >
+        <option value="">Select budget</option>
+        <option value="expensive">Expensive</option>
+        <option value="cheap">Cheap</option>
+        <option value="moderate">Moderate</option>
+      </select>
+    
    
        <h8 className={styles.inquiry}>Number of people for the trip</h8>
       {/* <img src={user} alt="user" className={styles.user}/>*/}
        <LabelledInput 
-             onChange={(x) => {
-             console.log(x);
-           }}
+            onChange={(event) => setPeople(event.target.value)}
            className={styles.but}/>
        <h8 className={styles.inquiry}>What all should we add for the budget?</h8>
        
@@ -172,19 +260,19 @@ const Details = () => {
    
    
       
-      
+      {/*
        <PrimaryButton  
              label={"Food Price"}
              className={styles.smallbut}/>
-      
+          */}
        <PrimaryButton  
              label={"Stay Price"}
              className={styles.smallbut}/>
-   
+   {/*
    <PrimaryButton  
              label={"Ticket Price"}
              className={styles.smallbut}/>
-      
+        */} 
        <PrimaryButton  
              label={"Petrol Budget"}
              className={styles.smallbut}/>
@@ -219,18 +307,14 @@ const Details = () => {
           <h8 className={styles.inquiry}>What's your average mileage?</h8>
          {/* <img src={truck} alt="truck" className={styles.truck} />*/}
           <LabelledInput
-            onChange={(x) => {
-              console.log(x);
-            }}
+          // onChange={(event) => setMileage(event.target.value)}
             className={styles.but}
           />
   
           <h8 className={styles.inquiry}>How much room for budget?(%)</h8>
           {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
           <LabelledInput
-            onChange={(x) => {
-              console.log(x);
-            }}
+          //  onChange={(event) => setRoom(event.target.value)}
             className={styles.but}
           />
   
@@ -238,9 +322,7 @@ const Details = () => {
          {/* <img src={star} alt="star" className={styles.star} />*/}
           <LabelledInput
             //label={"What is the duration of the trip?"}
-            onChange={(x) => {
-              console.log(x);
-            }}
+            onChange={(event) => setRating(event.target.value)}
             className={styles.but}
           />
   
