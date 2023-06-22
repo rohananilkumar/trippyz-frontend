@@ -6,11 +6,11 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 const containerStyle = {
-  position:"relative",
+  position: "relative",
   width: "165%",
   height: "660px",
-  top:140,
-  left:-263
+  top: 140,
+  left: -263,
 };
 
 const center = { lat: 21.291, lng: -157.821 };
@@ -46,9 +46,18 @@ function Mapview({ coordinates }) {
       <Polyline
         path={coordinates}
         options={{
-          strokeColor: "#FF0000",
+          strokeColor: "green",
           strokeOpacity: 1.0,
           strokeWeight: 2,
+          icons: [
+            {
+              icon: {
+                path: window.google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+              },
+              offset: "100%",
+              repeat: "100px",
+            },
+          ],
         }}
       />
       {/* Child components, such as markers, info windows, etc. */}

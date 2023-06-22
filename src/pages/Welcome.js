@@ -52,13 +52,11 @@ const Details = ({ onServerResponse }) => {
     start,
     duration,
     radius,
-    budget: "23423",
-    considerations: ["food", "stay"],
     restaurantRatingPreference,
-    roomForError: 40,
     routeType,
     peopleCount,
     budgetType,
+    vehicleType: "petrol",
   };
 
   const [activeSet, setActiveSet] = useState(1);

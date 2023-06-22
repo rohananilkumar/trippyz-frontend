@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import styles from "./Routetwo.module.scss";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import Sidebar from "../components/ui/Sidebar";
@@ -14,19 +14,20 @@ import Mapview from "../components/ui/Mapview";
 //import Map from "../components/ui/Map"
 
 const Details = ({ route }) => {
+  const [displayLocations, setDisplayLocations] = useState(true);
+  const [displayBudget, setDisplayBudget] = useState(false);
 
-   const [displayLocations, setDisplayLocations] = useState(true);
-   const [displayBudget, setDisplayBudget] = useState(false);
+  const handleLocationsClick = () => {
+    setDisplayLocations(true);
+    setDisplayBudget(false);
+  };
 
-   const handleLocationsClick = () => {
-     setDisplayLocations(true);
-     setDisplayBudget(false);
-   };
+  const handleBudgetClick = () => {
+    setDisplayLocations(false);
+    setDisplayBudget(true);
+  };
+  console.log(route);
 
-   const handleBudgetClick = () => {
-     setDisplayLocations(false);
-     setDisplayBudget(true);
-   };
   return (
     <>
       {!route && "Loading"}
@@ -67,7 +68,6 @@ const Details = ({ route }) => {
             </div>
             {displayLocations && (
               <>
-              
                 <IteneraryItem
                   label="Wrranambool"
                   type="touristpoint"
