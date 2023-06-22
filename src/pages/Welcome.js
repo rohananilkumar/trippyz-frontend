@@ -27,6 +27,7 @@ const Details = ({ onServerResponse }) => {
   const [restaurantRatingPreference, setRating] = useState("");
   const [routeType, setRouteType] = useState("");
   const [budgetType, setBudget] = useState("");
+  const [mileage, setMileage] = useState();
   const navigate = useNavigate();
 
   {
@@ -131,6 +132,11 @@ const handleInputChange = (event) => {
   };
 
   const renderFields = (setNumber) => {
+    const routeTypes = [
+      "lightly-scheduled",
+      "tightly-scheduled",
+      "normal-scheduled",
+    ];
     if (setNumber === 1) {
       return (
         <div className={styles.dash}>
@@ -147,25 +153,38 @@ const handleInputChange = (event) => {
             <PrimaryButton
               label={"Lightly Planned Routes"}
               className={styles.smallbut}
-              onClick={() => setRouteType("lightly-scheduled")}
+              onClick={() => {
+                setRouteType("lightly-scheduled");
+                handleNext();
+              }}
             />
 
             <PrimaryButton
               label={"Tightly Planned Routes"}
               className={styles.smallbut}
-              onClick={() => setRouteType("tightly-scheduled")}
+              onClick={() => {
+                setRouteType("tightly-scheduled");
+                handleNext();
+              }}
             />
 
             <PrimaryButton
               label={"Normal Planned Routes"}
               className={styles.smallbut}
-              onClick={() => setRouteType("normal-scheduled")}
+              onClick={() => {
+                setRouteType("normal-scheduled");
+                handleNext();
+              }}
             />
 
             <PrimaryButton
               label={"I like to be surprised"}
               className={styles.next}
-              onClick={handleNext}
+              onClick={() => {
+                const random = Math.floor(Math.random() * routeType.length);
+                setRouteType(routeType[random]);
+                handleNext();
+              }}
               //to={"/dashboard"}
             />
           </div>
@@ -188,6 +207,7 @@ const handleInputChange = (event) => {
             <LabelledInput
               onChange={(event) => setDestination(event.target.value)}
               className={styles.but}
+              value={dest}
             />
 
             <h8 className={styles.inquiry}>Where are you starting from?</h8>
@@ -195,6 +215,7 @@ const handleInputChange = (event) => {
             <LabelledInput
               onChange={(event) => setStartingPoint(event.target.value)}
               className={styles.but}
+              value={start}
             />
 
             <h8 className={styles.inquiry}>
@@ -203,6 +224,7 @@ const handleInputChange = (event) => {
             <LabelledInput
               onChange={(event) => setDuration(event.target.value)}
               className={styles.but}
+              value={duration}
             />
 
             <h8 className={styles.inquiry}>
@@ -211,6 +233,7 @@ const handleInputChange = (event) => {
             <LabelledInput
               onChange={(event) => setRadius(event.target.value)}
               className={styles.but}
+              value={radius}
             />
 
             <PrimaryButton
@@ -267,6 +290,7 @@ const handleInputChange = (event) => {
             <LabelledInput
               onChange={(event) => setPeople(event.target.value)}
               className={styles.but}
+              value={peopleCount}
             />
             <h8 className={styles.inquiry}>
               What all should we add for the budget?
@@ -311,11 +335,12 @@ const handleInputChange = (event) => {
             <h8 className={styles.inquiry}>What's your average mileage?</h8>
             {/* <img src={truck} alt="truck" className={styles.truck} />*/}
             <LabelledInput
-              // onChange={(event) => setMileage(event.target.value)}
+              onChange={(event) => setMileage(parseInt(event.target.value))}
               className={styles.but}
+              value={mileage}
             />
 
-            <h8 className={styles.inquiry}>How much room for budget?(%)</h8>
+            <h8 className={styles.inquiry}>Vehicle Type ... CHANGE ME</h8>
             {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
             <LabelledInput
               //  onChange={(event) => setRoom(event.target.value)}
@@ -328,6 +353,7 @@ const handleInputChange = (event) => {
               //label={"What is the duration of the trip?"}
               onChange={(event) => setRating(event.target.value)}
               className={styles.but}
+              value={restaurantRatingPreference}
             />
 
             <PrimaryButton
