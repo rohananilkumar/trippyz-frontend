@@ -14,10 +14,7 @@ const Card = ({title,imageurl,duration,expense,className}) => {
                 {title}
             </div>
             <div className={styles.card_body}>
-                <div className={styles.clock}>
-                    <img src={clock} alt="clock"/>
-                    <p>{duration}</p>
-                </div>
+                
 
                 <div className={styles.expense}>
                     <img src={money} alt="money" className={styles.money}/>

@@ -18,38 +18,17 @@ const Details = () => {
 <div className={styles.dash}>
       
     <Sidebar />
-
-   
-
-    { /*  
-   <Map className={styles.mapstyle}/> */ }
-    <div className={styles.mapone}>
-   
-   
-      
-     { /*  <Card
-        className={styles.cardview}
-        title={"Route 1"}
-        duration={"3 days, 12 hours"}
-        expense={"2000"}/>
-  */ }
-    </div>
-    <div className={styles.clock}>
-                    <img src={clock} alt="clock"/>
-                    <p>3 days, 12 hours</p>
-                </div>
-
-                <div className={styles.expense}>
-                    <img src={money} alt="money" className={styles.money}/>
-                    <p>20000</p>
-                </div>
-    
     
     <Title 
       titlefirst={"Route"} 
       titlesec={"Result!"}
       tagLine={"Route 1"}
     />
+    <Card 
+    className={styles.floatwindow}/>
+    
+    
+
    
   {/*<DashboardLayout/>*/}
 

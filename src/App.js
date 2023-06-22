@@ -25,6 +25,7 @@ import { getObjectFromLocalStorage } from "./utils/localStorage";
 import { useEffect } from "react";
 import MainLayout from "./components/layouts/MainLayout";
 import MapTest from "./pages/maptest";
+import Mapview from "./components/ui/Mapview";
 
 function App() {
   const [data, setData] = useState({
@@ -120,7 +121,7 @@ function App() {
       element: <Routeone route={serverResponse} />,
     },
     {
-      path: "/route_result_two",
+      path: "/routeone",
       element: <Routetwo />,
     },
     {
