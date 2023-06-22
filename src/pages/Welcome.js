@@ -1,23 +1,22 @@
-import React ,{ useState } from "react"
+import React, { useState } from "react";
 import { useEffect } from "react";
-import styles from "./Welcome.module.scss"
-import DashboardLayout from "../components/layouts/DashboardLayout"
-import Sidebar from "../components/ui/Sidebar"
-import Title from "../components/ui/Title"
-import PrimaryButton from "../components/ui/PrimaryButton"
-import LabelledInput from "../components/ui/LabelledInput"
+import styles from "./Welcome.module.scss";
+import DashboardLayout from "../components/layouts/DashboardLayout";
+import Sidebar from "../components/ui/Sidebar";
+import Title from "../components/ui/Title";
+import PrimaryButton from "../components/ui/PrimaryButton";
+import LabelledInput from "../components/ui/LabelledInput";
 
 import axiosInstance from "../utils/axios";
 import { getObjectFromLocalStorage } from "../utils/localStorage";
 
 import Card from "../components/ui/Card";
 import Mapview from "../components/ui/Mapview";
+import MapTest from "./maptest";
+import { useNavigate } from "react-router-dom";
 //import Map from "../components/ui/Mapview";
 
-
-
-const Details = () => {
- 
+const Details = ({ onServerResponse }) => {
   const [dest, setDestination] = useState("");
   const [start, setStartingPoint] = useState("");
   const [duration, setDuration] = useState("");
@@ -27,9 +26,11 @@ const Details = () => {
   //const [room, setRoom] = useState("");
   const [restaurantRatingPreference, setRating] = useState("");
   const [routeType, setRouteType] = useState("");
-  const [budgetType, setBudget] = useState('');
-  
-  {/*
+  const [budgetType, setBudget] = useState("");
+  const navigate = useNavigate();
+
+  {
+    /*
   const [data, setData] = useState({
     dest: undefined,
     start: undefined,
@@ -42,7 +43,8 @@ const Details = () => {
     routeType: "normal-scheduled",
     peopleCount: 2,
   });
-*/}
+*/
+  }
   const [serverResponse, setServerResponse] = useState();
 
   const data = {
@@ -59,48 +61,49 @@ const Details = () => {
     budgetType,
   };
 
-
   const [activeSet, setActiveSet] = useState(1);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (activeSet === 4) {
-      console.log(data)
-      sendDataToBackend();
+      console.log(data);
+      await sendDataToBackend();
+      navigate("/routeone");
     }
     setActiveSet(activeSet + 1);
   };
-  
- // const [coordinates, setCoordinates] = useState(null);
 
- const [coordinates, setCoordinates] = useState([]);
+  // const [coordinates, setCoordinates] = useState(null);
 
- useEffect(() => {
-  if (coordinates === undefined) {
-    console.log("Coordinates:", coordinates);
-  }
-}, [coordinates]);
+  const [coordinates, setCoordinates] = useState([]);
+
+  useEffect(() => {
+    if (coordinates === undefined) {
+      console.log("Coordinates:", coordinates);
+    }
+  }, [coordinates]);
 
   const sendDataToBackend = async () => {
     console.log("sending server request");
     try {
-      const response = await axiosInstance.post('routes/get-route', data, {
+      const response = await axiosInstance.post("routes/get-route", data, {
         headers: {
           "x-auth-token": getObjectFromLocalStorage("token"),
         },
       });
       setServerResponse(response.data);
+      onServerResponse(response.data);
       console.log(response.data);
 
       const receivedCoordinates = response.data.coordinates;
 
       // Set the coordinates in the state
       setCoordinates(receivedCoordinates);
-     //setCoordinates(prevCoordinates => [...prevCoordinates, ...receivedCoordinates]);
+      //setCoordinates(prevCoordinates => [...prevCoordinates, ...receivedCoordinates]);
 
       // Handle the coordinates as needed
       //console.log("Coordinates:", receivedCoordinates);
       //console.log("Coordinates:", coordinates);
-     // const coordinates = response.data.coordinates;
+      // const coordinates = response.data.coordinates;
 
       // Handle the coordinates as needed
       //console.log("Coordinates:", coordinates);
@@ -110,7 +113,8 @@ const Details = () => {
       // Handle any errors that occurred during the API call
     }
   };
-  {/*
+  {
+    /*
 const handleInputChange = (event) => {
   const { name, value } = event.target;
   setData((prevData) => ({
@@ -120,10 +124,8 @@ const handleInputChange = (event) => {
     
   }));
 };
-*/}
-
-
-  
+*/
+  }
 
   const handleBudgetChange = (event) => {
     setBudget(event.target.value);
@@ -134,119 +136,106 @@ const handleInputChange = (event) => {
     if (setNumber === 1) {
       return (
         <div className={styles.dash}>
-      
-     <Sidebar />
-     <DashboardLayout/>
-     <Title 
-    //  titlefirst={"Hello"} 
-      titlesec={"Hola!"}
-      tagLine={"Please select your preferred route configuration"}
-      className={styles.welcome}/>
-    
-     
-     
-
-<div className={styles.buttons}>
-    
-     <PrimaryButton  
-          label={"Lightly Planned Routes"}
-          className={styles.smallbut}
-          onClick={() =>setRouteType("lightly-scheduled")}
+          <Sidebar />
+          <DashboardLayout />
+          <Title
+            //  titlefirst={"Hello"}
+            titlesec={"Hola!"}
+            tagLine={"Please select your preferred route configuration"}
+            className={styles.welcome}
           />
 
-     <PrimaryButton  
-          label={"Tightly Planned Routes"}
-          className={styles.smallbut}
-          onClick={() => setRouteType("tightly-scheduled")}
-          />
+          <div className={styles.buttons}>
+            <PrimaryButton
+              label={"Lightly Planned Routes"}
+              className={styles.smallbut}
+              onClick={() => setRouteType("lightly-scheduled")}
+            />
 
-      <PrimaryButton  
-          label={"Normal Planned Routes"}
-          className={styles.smallbut}
-          onClick={() => setRouteType("normal-scheduled")}
-          />
-    
-   
+            <PrimaryButton
+              label={"Tightly Planned Routes"}
+              className={styles.smallbut}
+              onClick={() => setRouteType("tightly-scheduled")}
+            />
 
+            <PrimaryButton
+              label={"Normal Planned Routes"}
+              className={styles.smallbut}
+              onClick={() => setRouteType("normal-scheduled")}
+            />
 
-
-    <PrimaryButton  
-          label={"I like to be surprised"}
-          className={styles.next}
-          onClick={handleNext}
-          //to={"/dashboard"}
-          
-          />
-
-
-
-    </div>
-
-   </div>
+            <PrimaryButton
+              label={"I like to be surprised"}
+              className={styles.next}
+              onClick={handleNext}
+              //to={"/dashboard"}
+            />
+          </div>
+        </div>
       );
-    }
-    else if (setNumber === 2) {
+    } else if (setNumber === 2) {
       return (
         <div className={styles.dash}>
-      <Sidebar />
-      <DashboardLayout />
-      <Title
-        titlefirst={"Hello"}
-        titlesec={"There!"}
-        tagLine={"Lets collect some data to plan your route"}
-      />
+          <Sidebar />
+          <DashboardLayout />
+          <Title
+            titlefirst={"Hello"}
+            titlesec={"There!"}
+            tagLine={"Lets collect some data to plan your route"}
+          />
 
-      <div className={styles.buttons}>
-        <h8 className={styles.inquiry}>Where are you headed to?</h8>
-       {/* <img src={dest} alt="destination" className={styles.dest} />*/}
-        <LabelledInput
-          onChange={(event) => setDestination(event.target.value)}
-          className={styles.but}
-        />
+          <div className={styles.buttons}>
+            <h8 className={styles.inquiry}>Where are you headed to?</h8>
+            {/* <img src={dest} alt="destination" className={styles.dest} />*/}
+            <LabelledInput
+              onChange={(event) => setDestination(event.target.value)}
+              className={styles.but}
+            />
 
-        <h8 className={styles.inquiry}>Where are you starting from?</h8>
-       {/* <img src={start} alt="start" className={styles.start} />*/}
-        <LabelledInput
-          onChange={(event) => setStartingPoint(event.target.value)}
-          className={styles.but}
-        />
+            <h8 className={styles.inquiry}>Where are you starting from?</h8>
+            {/* <img src={start} alt="start" className={styles.start} />*/}
+            <LabelledInput
+              onChange={(event) => setStartingPoint(event.target.value)}
+              className={styles.but}
+            />
 
-        <h8 className={styles.inquiry}>What is the duration of the trip?</h8>
-        <LabelledInput
-          onChange={(event) => setDuration(event.target.value)}
-          className={styles.but}
-        />
+            <h8 className={styles.inquiry}>
+              What is the duration of the trip?
+            </h8>
+            <LabelledInput
+              onChange={(event) => setDuration(event.target.value)}
+              className={styles.but}
+            />
 
-        <h8 className={styles.inquiry}>What is the radius coverage (km)?</h8>
-        <LabelledInput
-           onChange={(event) => setRadius(event.target.value)}
-          className={styles.but}
-        />
+            <h8 className={styles.inquiry}>
+              What is the radius coverage (km)?
+            </h8>
+            <LabelledInput
+              onChange={(event) => setRadius(event.target.value)}
+              className={styles.but}
+            />
 
-        <PrimaryButton
-          label={"Next >"}
-          className={styles.next}
-          onClick={handleNext}
-        />
-        
-      </div>
-    </div>
+            <PrimaryButton
+              label={"Next >"}
+              className={styles.next}
+              onClick={handleNext}
+            />
+          </div>
+        </div>
       );
-    }
-    else if (setNumber === 3) {
+    } else if (setNumber === 3) {
       return (
         <div className={styles.dash}>
-      
-        <Sidebar />
-        <DashboardLayout/>
-        <Title 
-         titlefirst={"Budget"} 
-         titlesec={"Details!"}
-         tagLine={"Lets talk money!"}
-         className={styles.budget}/>
-       
-        
-  {/*      
+          <Sidebar />
+          <DashboardLayout />
+          <Title
+            titlefirst={"Budget"}
+            titlesec={"Details!"}
+            tagLine={"Lets talk money!"}
+            className={styles.budget}
+          />
+
+          {/*      
    
    <div className={styles.buttons}>
        <h8 className={styles.inquiry}>What is your total trip budget?</h8>
@@ -260,118 +249,106 @@ const handleInputChange = (event) => {
 
       */}
 
-<div className={styles.buttons}>
-      <h8 className={styles.inquiry}>What kind of budget are you looking at?</h8>
-      <select
-        value={budgetType}
-        onChange={handleBudgetChange}
-        className={styles.selectbut}
-      >
-        <option value="">Select budget</option>
-        <option value="expensive">Expensive</option>
-        <option value="cheap">Cheap</option>
-        <option value="moderate">Moderate</option>
-      </select>
-    
-   
-       <h8 className={styles.inquiry}>Number of people for the trip</h8>
-      {/* <img src={user} alt="user" className={styles.user}/>*/}
-       <LabelledInput 
-            onChange={(event) => setPeople(event.target.value)}
-           className={styles.but}/>
-       <h8 className={styles.inquiry}>What all should we add for the budget?</h8>
-       
-       
-   
-   
-      
-      {/*
+          <div className={styles.buttons}>
+            <h8 className={styles.inquiry}>
+              What kind of budget are you looking at?
+            </h8>
+            <select
+              value={budgetType}
+              onChange={handleBudgetChange}
+              className={styles.selectbut}
+            >
+              <option value="">Select budget</option>
+              <option value="expensive">Expensive</option>
+              <option value="cheap">Cheap</option>
+              <option value="moderate">Moderate</option>
+            </select>
+
+            <h8 className={styles.inquiry}>Number of people for the trip</h8>
+            {/* <img src={user} alt="user" className={styles.user}/>*/}
+            <LabelledInput
+              onChange={(event) => setPeople(event.target.value)}
+              className={styles.but}
+            />
+            <h8 className={styles.inquiry}>
+              What all should we add for the budget?
+            </h8>
+
+            {/*
        <PrimaryButton  
              label={"Food Price"}
              className={styles.smallbut}/>
           */}
-       <PrimaryButton  
-             label={"Stay Price"}
-             className={styles.smallbut}/>
-   {/*
+            <PrimaryButton label={"Stay Price"} className={styles.smallbut} />
+            {/*
    <PrimaryButton  
              label={"Ticket Price"}
              className={styles.smallbut}/>
-        */} 
-       <PrimaryButton  
-             label={"Petrol Budget"}
-             className={styles.smallbut}/>
-       
-   
-       <PrimaryButton  
-             label={"Next >"}
-             className={styles.next}
-             onClick={handleNext}
-            // to={"/parameters"}
-             
-             />
-       </div>
-   
-      </div>
+        */}
+            <PrimaryButton
+              label={"Petrol Budget"}
+              className={styles.smallbut}
+            />
 
-
-      );
-    }
-    else if (setNumber === 4) {
-      return (
-        <div className={styles.dash}>
-        <Sidebar />
-        <DashboardLayout />
-        <Title
-          //  titlefirst={"Hello"}
-          titlesec={"Parameters"}
-          tagLine={"Ok we need a bit more info"}
-        />
-  
-        <div className={styles.buttons}>
-          <h8 className={styles.inquiry}>What's your average mileage?</h8>
-         {/* <img src={truck} alt="truck" className={styles.truck} />*/}
-          <LabelledInput
-          // onChange={(event) => setMileage(event.target.value)}
-            className={styles.but}
-          />
-  
-          <h8 className={styles.inquiry}>How much room for budget?(%)</h8>
-          {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
-          <LabelledInput
-          //  onChange={(event) => setRoom(event.target.value)}
-            className={styles.but}
-          />
-  
-          <h8 className={styles.inquiry}>Restaurant rating preferences</h8>
-         {/* <img src={star} alt="star" className={styles.star} />*/}
-          <LabelledInput
-            //label={"What is the duration of the trip?"}
-            onChange={(event) => setRating(event.target.value)}
-            className={styles.but}
-          />
-  
-          <PrimaryButton
-            label={"See my routes! >"}
-            className={styles.next}
-            onClick={handleNext}
-            
-          />
+            <PrimaryButton
+              label={"Next >"}
+              className={styles.next}
+              onClick={handleNext}
+            />
+          </div>
         </div>
-      </div>
       );
-    }
-
-
-    else if (setNumber === 5) {
+    } else if (setNumber === 4) {
       return (
         <div className={styles.dash}>
-        <Sidebar />
+          <Sidebar />
+          <DashboardLayout />
+          <Title
+            //  titlefirst={"Hello"}
+            titlesec={"Parameters"}
+            tagLine={"Ok we need a bit more info"}
+          />
 
-        <Mapview 
-          className={styles.mapstyle} 
-          coordinates={coordinates}/>
-        {/*
+          <div className={styles.buttons}>
+            <h8 className={styles.inquiry}>What's your average mileage?</h8>
+            {/* <img src={truck} alt="truck" className={styles.truck} />*/}
+            <LabelledInput
+              // onChange={(event) => setMileage(event.target.value)}
+              className={styles.but}
+            />
+
+            <h8 className={styles.inquiry}>How much room for budget?(%)</h8>
+            {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
+            <LabelledInput
+              //  onChange={(event) => setRoom(event.target.value)}
+              className={styles.but}
+            />
+
+            <h8 className={styles.inquiry}>Restaurant rating preferences</h8>
+            {/* <img src={star} alt="star" className={styles.star} />*/}
+            <LabelledInput
+              //label={"What is the duration of the trip?"}
+              onChange={(event) => setRating(event.target.value)}
+              className={styles.but}
+            />
+
+            <PrimaryButton
+              label={"See my routes! >"}
+              className={styles.next}
+              onClick={handleNext}
+
+              // to={"/routeone"}
+            />
+          </div>
+        </div>
+      );
+    } else if (setNumber === 5) {
+      return (
+        <div className={styles.dash}>
+          <Sidebar />
+
+          <MapTest className={styles.mapstyle} coordinates={coordinates} />
+          {/*
        
         <Card
           className={styles.cardviewright}
@@ -388,8 +365,8 @@ const handleInputChange = (event) => {
           expense={"2000"}
         />
       */}
-         
-      {/*
+
+          {/*
         <div className={styles.mapone}>
           <Mapview 
           className={styles.mapstyle} 
@@ -403,22 +380,20 @@ const handleInputChange = (event) => {
           />
         </div>
     */}
-        <Title titlefirst={"Route"} titlesec={"Result!"} />
-  
-        {/*<DashboardLayout/>*/}
-      </div>
+          <Title titlefirst={"Route"} titlesec={"Result!"} />
 
+          {/*<DashboardLayout/>*/}
+        </div>
       );
     }
     return null;
   };
 
-return (
-  <div>
-    {renderFields(activeSet)}
-    <button onClick={handleNext}>Next</button>
-  </div>
-);
-
+  return (
+    <div>
+      {renderFields(activeSet)}
+      <button onClick={handleNext}>Next</button>
+    </div>
+  );
 };
 export default Details;

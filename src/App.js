@@ -59,6 +59,7 @@ function App() {
     },
     {
       path: "/dashboard",
+      
       element: (
         <Dashboard
           submit={(data) => {
@@ -110,7 +111,7 @@ function App() {
     },
     {
       path: "/welcome",
-      element: <Welcome />,
+      element: <Welcome onServerResponse={(response)=>setServerResponse(response)} />,
     },
     {
       path: "/successfull_login",
@@ -122,7 +123,7 @@ function App() {
     },
     {
       path: "/routeone",
-      element: <Routetwo />,
+      element: <Routetwo route={serverResponse} />,
     },
     {
       path: "/route_result_three",
