@@ -1,102 +1,104 @@
-.dash{
-    background-color: #E9E9E9;
-    display: grid;
-    grid-template-columns: 30% 50%;
-    gap:3%; 
+.dash {
+  background-color: #e9e9e9;
+  display: grid;
+  grid-template-columns: 30% 50%;
+  gap: 3%;
 }
-.but{
+.but {
   display: grid;
   width: 25rem;
   margin-right: 10%;
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 0px;
   gap: 10px;
 
-
   position: absolute;
   width: 504px;
   height: 504px;
   left: 710px;
   top: 240px;
-
 }
 
-.smallbut{
+.smallbut {
   width: 25rem;
   margin-right: 3rem;
   background: rgb(129, 234, 166);
   color: black;
 }
 
-.inquiry{
- margin-right: 30%;
-  
+.smallbutSelected {
+  width: 25rem;
+  margin-right: 3rem;
+  background: rgb(28, 126, 62);
+  color: black;
 }
 
-.combine{
+.inquiry {
+  margin-right: 30%;
+}
+
+.combine {
   display: inline-flex;
-  gap:0.1rem;
+  gap: 0.1rem;
 }
 
-.next{
+.next {
   width: 25.3rem;
   margin-right: 3rem;
-  margin-top:3%;
+  margin-top: 3%;
 }
 
-.dest{
+.dest {
   position: absolute;
   width: 0.7rem;
   top: 2.8rem;
   left: 4rem;
 }
-.start{
+.start {
   position: absolute;
   width: 0.7rem;
   top: 8.3rem;
   left: 4rem;
 }
 
-.yes{
+.yes {
   position: absolute;
   height: 2.5rem;
   left: 3.4rem;
 }
-.no{
+.no {
   position: absolute;
   height: 2.5rem;
   left: 17.5rem;
 }
-.calendarstart{
-position: absolute;
-left: 4rem;
-top: 23.8rem;
+.calendarstart {
+  position: absolute;
+  left: 4rem;
+  top: 23.8rem;
 }
-.calendarend{
-position: absolute;
-left: 18rem;
-top: 23.8rem;
-
-}
-
-.welcome{
-    left: 50%;
-    top: 8%;
-    right: 40%;
+.calendarend {
+  position: absolute;
+  left: 18rem;
+  top: 23.8rem;
 }
 
-.new{
+.welcome {
+  left: 50%;
+  top: 8%;
+  right: 40%;
+}
+
+.new {
   width: 25.3rem;
   margin-right: 19%;
-  margin-top:3%;
+  margin-top: 3%;
 }
 
-.selectbut{
- 
+.selectbut {
   width: 25rem;
   height: 2rem;
   margin-right: 10%;

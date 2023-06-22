@@ -29,6 +29,7 @@ const Details = ({ onServerResponse }) => {
   const [budgetType, setBudget] = useState("");
   const [mileage, setMileage] = useState();
   const [vehicleType, setVehicleType] = useState("");
+  const [considerations, setConsiderations] = useState([]);
   const navigate = useNavigate();
 
   {
@@ -302,7 +303,7 @@ const handleInputChange = (event) => {
               type={"number"}
             />
             <h8 className={styles.inquiry}>
-              What all should we add for the budget?
+              Budget considerations will be done base on
             </h8>
 
             {/*
@@ -310,7 +311,15 @@ const handleInputChange = (event) => {
              label={"Food Price"}
              className={styles.smallbut}/>
           */}
-            <PrimaryButton label={"Stay Price"} className={styles.smallbut} />
+            <PrimaryButton
+              label={"Stay Price"}
+              className={styles.smallbut}
+              // onClick={()=>{
+              //   setConsiderations(x=>{
+              //     if(x.includes("stay"))
+              //   })
+              // }}
+            />
             {/*
    <PrimaryButton  
              label={"Ticket Price"}
@@ -360,8 +369,8 @@ const handleInputChange = (event) => {
               className={styles.selectbut}
             >
               <option value="">Select Type</option>
-              <option value="expensive">Petrol</option>
-              <option value="diese;">Diesel</option>
+              <option value="petrol">Petrol</option>
+              <option value="diesel">Diesel</option>
             </select>
 
             <h8 className={styles.inquiry}>Restaurant rating preferences</h8>
