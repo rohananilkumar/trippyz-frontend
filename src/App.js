@@ -1,4 +1,3 @@
-
 import logo from "./logo.svg";
 import "./App.css";
 import SignUp from "./pages/SignUp";
@@ -25,8 +24,7 @@ import axiosInstance from "./utils/axios";
 import { getObjectFromLocalStorage } from "./utils/localStorage";
 import { useEffect } from "react";
 import MainLayout from "./components/layouts/MainLayout";
-import Map from "./components/ui/Mapview";
-import Mapview from "./components/ui/Mapview";
+import MapTest from "./pages/maptest";
 
 function App() {
   const [data, setData] = useState({
@@ -82,6 +80,10 @@ function App() {
       element: <Budget />,
     },
     {
+      path: "/test",
+      element: <MapTest />,
+    },
+    {
       path: "/parameters",
       element: (
         <Parameters
@@ -127,8 +129,7 @@ function App() {
     },
     {
       path: "/final",
-      element: <Mapview
-      polyline={polyline} />,
+      element: <Mapview polyline={polyline} />,
     },
   ]);
 
