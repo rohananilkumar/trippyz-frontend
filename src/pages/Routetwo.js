@@ -26,8 +26,6 @@ const Details = ({ route }) => {
     setDisplayLocations(false);
     setDisplayBudget(true);
   };
-  console.log(route);
-
   return (
     <>
       {!route && "Loading"}
@@ -47,7 +45,7 @@ const Details = ({ route }) => {
             <div className={styles.tag}>Starting point -</div>
             <div className={styles.line}>Destination</div>
           </div>
-          <Card className={styles.floatwindow}>
+          <Card className={`${styles.floatwindow} ${styles.scrollable}`}>
             <div className={styles.header}>
               <button
                 className={`${styles.text} ${
@@ -68,6 +66,7 @@ const Details = ({ route }) => {
             </div>
             {displayLocations && (
               <>
+                {/*
                 <IteneraryItem
                   label="Wrranambool"
                   type="touristpoint"
@@ -120,6 +119,20 @@ const Details = ({ route }) => {
                   item={2}
                   time={"3.30pm"}
                 />
+            */}
+                {/*
+                {route.generatedRoute.map((item, index) => (
+                  <IteneraryItem
+                    key={index}
+                    label={item.place}
+                    type="touristpoint"
+                    day={item.day}
+                    item={index + 1}
+                    time={`${item.hours}:${item.mins} ${
+                      item.hours >= 12 ? "PM" : "AM"
+                    }`}
+                  />
+                ))}
               </>
             )}
             {displayBudget && (
@@ -139,6 +152,74 @@ const Details = ({ route }) => {
                   item={2}
                   time={"3.30pm"}
                 />
+            */}
+
+                {route.generatedRoute.map((item, index) => {
+                  if (
+                    item.break !== "stay" &&
+                    item.break !== "breakfast" &&
+                    item.break !== "lunch" &&
+                    item.break !== "dinner"
+                  ) {
+                    return (
+                      <IteneraryItem
+                        key={index}
+                        label={item.place}
+                        type="touristpoint"
+                        day={item.day}
+                        item={index + 1}
+                        time={`${item.hours}:${item.mins} ${
+                          item.hours >= 12 ? "PM" : "AM"
+                        }`}
+                      />
+                    );
+                  }
+                })}
+
+                <div className={styles.header}>
+                  <div className={styles.text}>Restaurants</div>
+                </div>
+
+                {route.generatedRoute.map((item, index) => {
+                  if (
+                    item.break === "breakfast" ||
+                    item.break === "lunch" ||
+                    item.break === "dinner"
+                  ) {
+                    return (
+                      <IteneraryItem
+                        key={index}
+                        label={item.place}
+                        type="restaurant"
+                        day={item.day}
+                        item={index + 1}
+                        time={`${item.hours}:${item.mins} ${
+                          item.hours >= 12 ? "PM" : "AM"
+                        }`}
+                      />
+                    );
+                  }
+                })}
+
+                <div className={styles.header}>
+                  <div className={styles.text}>Hotels</div>
+                </div>
+                {route.generatedRoute.map((item, index) => {
+                  if (item.break === "stay") {
+                    return (
+                      <IteneraryItem
+                        key={index}
+                        label={item.place}
+                        type="hotel"
+                        day={item.day}
+                        item={index + 1}
+                        time={`${item.hours}:${item.mins} ${
+                          item.hours >= 12 ? "PM" : "AM"
+                        }`}
+                      />
+                    );
+                  }
+                })}
               </>
             )}
           </Card>
