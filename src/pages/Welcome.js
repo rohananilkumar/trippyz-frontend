@@ -1,4 +1,5 @@
 import React ,{ useState } from "react"
+import { useEffect } from "react";
 import styles from "./Welcome.module.scss"
 import DashboardLayout from "../components/layouts/DashboardLayout"
 import Sidebar from "../components/ui/Sidebar"
@@ -11,7 +12,7 @@ import { getObjectFromLocalStorage } from "../utils/localStorage";
 
 import Card from "../components/ui/Card";
 import Mapview from "../components/ui/Mapview";
-import Map from "../components/ui/Mapview";
+//import Map from "../components/ui/Mapview";
 
 
 
@@ -68,6 +69,16 @@ const Details = () => {
     }
     setActiveSet(activeSet + 1);
   };
+  
+ // const [coordinates, setCoordinates] = useState(null);
+
+ const [coordinates, setCoordinates] = useState([]);
+
+ useEffect(() => {
+  if (coordinates === undefined) {
+    console.log("Coordinates:", coordinates);
+  }
+}, [coordinates]);
 
   const sendDataToBackend = async () => {
     console.log("sending server request");
@@ -79,6 +90,20 @@ const Details = () => {
       });
       setServerResponse(response.data);
       console.log(response.data);
+
+      const receivedCoordinates = response.data.coordinates;
+
+      // Set the coordinates in the state
+      setCoordinates(receivedCoordinates);
+     //setCoordinates(prevCoordinates => [...prevCoordinates, ...receivedCoordinates]);
+
+      // Handle the coordinates as needed
+      //console.log("Coordinates:", receivedCoordinates);
+      //console.log("Coordinates:", coordinates);
+     // const coordinates = response.data.coordinates;
+
+      // Handle the coordinates as needed
+      //console.log("Coordinates:", coordinates);
       // Handle the response from the backend if needed
     } catch (error) {
       console.log("Error:", error.response);
@@ -342,7 +367,11 @@ const handleInputChange = (event) => {
       return (
         <div className={styles.dash}>
         <Sidebar />
-        
+
+        <Mapview 
+          className={styles.mapstyle} 
+          coordinates={coordinates}/>
+        {/*
        
         <Card
           className={styles.cardviewright}
@@ -358,10 +387,13 @@ const handleInputChange = (event) => {
           duration={"3 days, 12 hours"}
           expense={"2000"}
         />
-  
-
+      */}
+         
+      {/*
         <div className={styles.mapone}>
-          <Mapview className={styles.mapstyle} />
+          <Mapview 
+          className={styles.mapstyle} 
+          coordinates={coordinates}/>
   
           <Card
             className={styles.cardview}
@@ -370,7 +402,7 @@ const handleInputChange = (event) => {
             expense={"2000"}
           />
         </div>
-  
+    */}
         <Title titlefirst={"Route"} titlesec={"Result!"} />
   
         {/*<DashboardLayout/>*/}

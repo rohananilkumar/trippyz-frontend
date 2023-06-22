@@ -25,6 +25,8 @@ import axiosInstance from "./utils/axios";
 import { getObjectFromLocalStorage } from "./utils/localStorage";
 import { useEffect } from "react";
 import MainLayout from "./components/layouts/MainLayout";
+import Map from "./components/ui/Mapview";
+import Mapview from "./components/ui/Mapview";
 
 function App() {
   const [data, setData] = useState({
@@ -39,6 +41,12 @@ function App() {
     routeType: "normal-scheduled",
     peopleCount: 2,
   });
+
+  const polyline = [
+    { lat: 37.7749, lng: -122.4194 },
+    { lat: 34.0522, lng: -118.2437 },
+    // Add more LatLng objects for the polyline path
+  ];
   const [serverResponse, setServerResponse] = useState();
 
   const router = createBrowserRouter([
@@ -119,7 +127,8 @@ function App() {
     },
     {
       path: "/final",
-      element: <MainLayout />,
+      element: <Mapview
+      polyline={polyline} />,
     },
   ]);
 

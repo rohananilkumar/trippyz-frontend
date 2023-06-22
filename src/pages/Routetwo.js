@@ -8,7 +8,7 @@ import money from '../assets/Icons/money.svg'
 
 import Card from "../components/ui/Card"
 //import Mapview from "../components/ui/Mapview"
-import Map from "../components/ui/Map"
+//import Map from "../components/ui/Map"
 
 
 const Details = () => {
@@ -21,11 +21,11 @@ const Details = () => {
 
    
 
-   
-   <Map className={styles.mapstyle}/>
+    { /*  
+   <Map className={styles.mapstyle}/> */ }
     <div className={styles.mapone}>
    
-    
+   
       
      { /*  <Card
         className={styles.cardview}
