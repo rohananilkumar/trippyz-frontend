@@ -6,8 +6,11 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 const containerStyle = {
-  width: "400px",
-  height: "400px",
+  position:"relative",
+  width: "165%",
+  height: "660px",
+  top:140,
+  left:-263
 };
 
 const center = { lat: 21.291, lng: -157.821 };
