@@ -28,6 +28,7 @@ const Details = ({ onServerResponse }) => {
   const [routeType, setRouteType] = useState("");
   const [budgetType, setBudget] = useState("");
   const [mileage, setMileage] = useState();
+  const [vehicleType, setVehicleType] = useState("");
   const navigate = useNavigate();
 
   {
@@ -57,7 +58,7 @@ const Details = ({ onServerResponse }) => {
     routeType,
     peopleCount,
     budgetType,
-    vehicleType: "petrol",
+    vehicleType,
   };
 
   const [activeSet, setActiveSet] = useState(1);
@@ -128,6 +129,11 @@ const handleInputChange = (event) => {
 
   const handleBudgetChange = (event) => {
     setBudget(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleVehicleTypeChange = (event) => {
+    setVehicleType(event.target.value);
     console.log(event.target.value);
   };
 
@@ -219,12 +225,13 @@ const handleInputChange = (event) => {
             />
 
             <h8 className={styles.inquiry}>
-              What is the duration of the trip?
+              What is the duration (days) of the trip?
             </h8>
             <LabelledInput
               onChange={(event) => setDuration(event.target.value)}
               className={styles.but}
               value={duration}
+              type={"number"}
             />
 
             <h8 className={styles.inquiry}>
@@ -234,6 +241,7 @@ const handleInputChange = (event) => {
               onChange={(event) => setRadius(event.target.value)}
               className={styles.but}
               value={radius}
+              type={"number"}
             />
 
             <PrimaryButton
@@ -291,6 +299,7 @@ const handleInputChange = (event) => {
               onChange={(event) => setPeople(event.target.value)}
               className={styles.but}
               value={peopleCount}
+              type={"number"}
             />
             <h8 className={styles.inquiry}>
               What all should we add for the budget?
@@ -332,20 +341,28 @@ const handleInputChange = (event) => {
           />
 
           <div className={styles.buttons}>
-            <h8 className={styles.inquiry}>What's your average mileage?</h8>
+            <h8 className={styles.inquiry}>
+              What's your average mileage (kmpl)?
+            </h8>
             {/* <img src={truck} alt="truck" className={styles.truck} />*/}
             <LabelledInput
               onChange={(event) => setMileage(parseInt(event.target.value))}
               className={styles.but}
               value={mileage}
+              type={"number"}
             />
 
-            <h8 className={styles.inquiry}>Vehicle Type ... CHANGE ME</h8>
+            <h8 className={styles.inquiry}>Vehicle Type</h8>
             {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
-            <LabelledInput
-              //  onChange={(event) => setRoom(event.target.value)}
-              className={styles.but}
-            />
+            <select
+              value={vehicleType}
+              onChange={handleVehicleTypeChange}
+              className={styles.selectbut}
+            >
+              <option value="">Select Type</option>
+              <option value="expensive">Petrol</option>
+              <option value="diese;">Diesel</option>
+            </select>
 
             <h8 className={styles.inquiry}>Restaurant rating preferences</h8>
             {/* <img src={star} alt="star" className={styles.star} />*/}
@@ -354,6 +371,7 @@ const handleInputChange = (event) => {
               onChange={(event) => setRating(event.target.value)}
               className={styles.but}
               value={restaurantRatingPreference}
+              type={"number"}
             />
 
             <PrimaryButton
