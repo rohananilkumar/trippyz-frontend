@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+
+  .innerDiv {
+    display: flex;
+    align-items: center;
+    .icon {
+      color: "#414141";
+    }
+    .label {
+      margin-left: 0.5rem;
+      color: #414141;
+      display: flex;
+      font-size: 15px;
+    }
+  }
+  .time {
+    font-size: 13px;
+  }
+}

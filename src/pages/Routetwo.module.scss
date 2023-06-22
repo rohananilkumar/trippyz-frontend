@@ -1,119 +1,130 @@
-.dash{
-    background-color: #E9E9E9;
-    display: grid;
-    grid-template-columns: 30% 50%;
-    gap:3%; 
+.dash {
+  background-color: #e9e9e9;
+  display: grid;
+  grid-template-columns: 30% 50%;
+  gap: 3%;
 }
-.but{
+.but {
   display: grid;
   width: 25rem;
   margin-right: 10%;
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 0px;
   gap: 10px;
 
-
   position: absolute;
   width: 504px;
   height: 504px;
   left: 647px;
   top: 160px;
-
 }
 
-.smallbut{
+.smallbut {
   width: 11rem;
   margin-right: 3rem;
   background: white;
   color: black;
-  margin-left:-0rem;
+  margin-left: -0rem;
 }
 
+.cardview {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 0px;
+  gap: 10px;
 
-.cardview{
-    display: flex;
-    flex-direction: column;
-    align-items:left;
-    padding: 0px;
-    gap: 10px;
-  
-  
-    position: absolute;
-    width: 300px;
-    height: 365px;
-    left: 510px;
-    top: 20px;
-    border-radius: 5px;
-  
-  }
-  .mapstyle{
-    margin-top: 6.5rem;
-    margin-left: -13rem;
-    z-index: 999;
-    width: 52.4rem;
-    padding: 0;
-    position: relative;
-  }
+  position: absolute;
+  width: 300px;
+  height: 365px;
+  left: 510px;
+  top: 20px;
+  border-radius: 5px;
+}
+.mapstyle {
+  margin-top: 6.5rem;
+  margin-left: -13rem;
+  z-index: 999;
+  width: 52.4rem;
+  padding: 0;
+  position: relative;
+}
 
-  .cardviewleft{
-    display: flex;
-    flex-direction: column;
-    align-items:left;
-    padding: 0px;
-    gap: 10px;
-  
-  
-    position: absolute;
-    width: 300px;
-    height: 365px;
-    left: 180px;
-    top: 100px;
-    border-radius: 5px;
-  
-  }
-  .mapstyleleft{
-    margin-top: 8.2rem;
-    margin-left: 15.8rem;
-    z-index: 999;
-    width: 52.4rem;
-    padding: 0;
-    position: relative;
-  }
-  .cardviewright{
-    display: flex;
-    flex-direction: column;
-    align-items:left;
-    padding: 0px;
-    gap: 10px;
-  
-  
-    position: absolute;
-    width: 300px;
-    height: 365px;
-    left: 840px;
-    top: 100px;
-    border-radius: 5px;
-  
-  }
-  .expense{
-    top: 0;
-    left: 0;
-    margin-top: 1%;
-  }
-  .floatwindow{
-    background: #f0f1f4;
-    position: fixed;
-    top: 0;
-    right: 1rem;
-    width: 319px;
-    height: 487px;
-    flex-shrink: 0;
-    float:right;
+.cardviewleft {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 0px;
+  gap: 10px;
 
-   
-   
+  position: absolute;
+  width: 300px;
+  height: 365px;
+  left: 180px;
+  top: 100px;
+  border-radius: 5px;
+}
+.mapstyleleft {
+  margin-top: 8.2rem;
+  margin-left: 15.8rem;
+  z-index: 999;
+  width: 52.4rem;
+  padding: 0;
+  position: relative;
+}
+.cardviewright {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 0px;
+  gap: 10px;
+
+  position: absolute;
+  width: 300px;
+  height: 365px;
+  left: 840px;
+  top: 100px;
+  border-radius: 5px;
+}
+.expense {
+  top: 0;
+  left: 0;
+  margin-top: 1%;
+}
+.floatwindow {
+  background: #f0f1f4;
+  position: fixed;
+  top: 0;
+  right: 1rem;
+  width: 319px;
+  height: 487px;
+  flex-shrink: 0;
+  float: right;
+  padding: 1rem;
+  border-radius: 5px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    .text {
+      color: "#252525";
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .button {
+      border: solid;
+      border-width: 1px;
+      background-color: white;
+      font-size: 10px;
+      font-weight: 400;
+      width: 7rem;
+    }
   }
+}
