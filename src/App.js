@@ -10,6 +10,7 @@ import Routeone from "./pages/Routeone";
 import Routetwo from "./pages/Routetwo";
 import Routethree from "./pages/Routethree";
 
+
 //import { Route } from "react-router-dom";
 
 import {
@@ -26,6 +27,7 @@ import { useEffect } from "react";
 import MainLayout from "./components/layouts/MainLayout";
 import MapTest from "./pages/maptest";
 import Mapview from "./components/ui/Mapview";
+import Routeoptions from "./pages/Routeoptions";
 
 function App() {
   const [data, setData] = useState({
@@ -59,7 +61,7 @@ function App() {
     },
     {
       path: "/dashboard",
-      
+
       element: (
         <Dashboard
           submit={(data) => {
@@ -111,15 +113,21 @@ function App() {
     },
     {
       path: "/welcome",
-      element: <Welcome onServerResponse={(response)=>setServerResponse(response)} />,
+      element: (
+        <Welcome onServerResponse={(response) => setServerResponse(response)} />
+      ),
     },
     {
       path: "/successfull_login",
       element: <Successlogin />,
     },
     {
+      path: "/routeoptions",
+      element: <Routeoptions />,
+    },
+    {
       path: "/route_result_one",
-      element: <Routeone route={serverResponse} />,
+      element: <Routeone />,
     },
     {
       path: "/routeone",
@@ -128,6 +136,10 @@ function App() {
     {
       path: "/route_result_three",
       element: <Routethree />,
+    },
+    {
+      path: "/routeoptions",
+      element: <Routeoptions />,
     },
     {
       path: "/final",

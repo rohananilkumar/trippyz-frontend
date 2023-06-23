@@ -3,12 +3,14 @@ import styles from './Mapview.module.scss'
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '77.3rem',
-  height: '616px',
+  width: '20rem',
+  height: '300px',
+  top:-60,
+  right:8
 };
 
 const center = {
-  lat: 91.860780,
+  lat: 11.860780,
   lng: 75.414001,
 };
 

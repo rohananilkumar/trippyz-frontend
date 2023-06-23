@@ -3,6 +3,51 @@
     display: grid;
     grid-template-columns: 30% 50%;
     gap:3%; 
+
+    .window{
+      background: #051937;
+        position: fixed;
+        top: 10rem;
+        right: 8rem;
+        width: 300px;
+        height: 350px;
+        flex-shrink: 0;
+        float: right;
+        padding: 1rem;
+        border-radius: 5px;
+        
+        
+    }
+
+    .window1 {
+      background: #051937;
+      position: fixed;
+      top: 0;
+      right: 34rem;
+      width: 300px;
+      height: 350px;
+      flex-shrink: 0;
+      float: right;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .window2 {
+       background: #051937;
+       position: fixed;
+       top: 10rem;
+       right: 60rem;
+       width: 300px;
+       height: 350px;
+       flex-shrink: 0;
+       float: right;
+       padding: 1rem;
+       border-radius: 5px;
+     }
+}
+
+.windowhead {
+  color: #E9E9E9;
 }
 .but{
   display: grid;
@@ -67,5 +112,40 @@
 
 
 .budget{
-    left: 44%;
+    left: 15%;
+}
+
+.contents{
+  .card_title{
+    color:#ffffff;
+  }
+}
+
+.budgettype{
+  top: 20rem;
+  position: relative;
+}
+.budgetroute {
+  top: 20rem;
+  position: relative;
+}
+.budgetmapone{
+  top: -1rem;
+    position: relative;
+}
+.budgetroutetwo {
+  top: 20rem;
+  position: relative;
+}
+.budgetroutethree {
+  top: 20rem;
+  position: relative;
+}
+.budgetmaptwo {
+  top: -1rem;
+  position: relative;
+}
+.budgetmapthree {
+  top: -1rem;
+  position: relative;
 }

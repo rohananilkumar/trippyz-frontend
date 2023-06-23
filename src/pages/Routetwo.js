@@ -38,13 +38,11 @@ const Details = ({ route }) => {
           <Title
             titlefirst={"Route"}
             titlesec={"Result!"}
-            tagLine={"Route 1"}
-            className={styles.first}
+            tagLine={"Starting point > Destination"}
+            className={styles.result}
           />
-          <div className={styles.secondheader}>
-            <div className={styles.tag}>Starting point -</div>
-            <div className={styles.line}>Destination</div>
-          </div>
+         
+         
           <Card className={`${styles.floatwindow} ${styles.scrollable}`}>
             <div className={styles.header}>
               <button
@@ -168,7 +166,7 @@ const Details = ({ route }) => {
                         type="touristpoint"
                         day={item.day}
                         item={index + 1}
-                        time={`${item.hours}:${item.mins} ${
+                        time={`${item.hours || ""}:${item.mins || ""} ${
                           item.hours >= 12 ? "PM" : "AM"
                         }`}
                       />
@@ -216,6 +214,47 @@ const Details = ({ route }) => {
                         time={`${item.hours}:${item.mins} ${
                           item.hours >= 12 ? "PM" : "AM"
                         }`}
+                      />
+                    );
+                  }
+                })}
+              </>
+            )}
+
+            {displayBudget && (
+              <>
+                {route.generatedRoute.map((item, index) => {
+                  if (item.break === "stay") {
+                    return (
+                      <IteneraryItem
+                        key={index}
+                        label={item.place}
+                        type="hotel"
+                        
+                        item={index + 1}
+                        
+                        
+                        peopleCount={item.peopleCount}
+                        price={item.price}
+                      />
+                    );
+                  }
+                })}
+
+                {route.generatedRoute.map((item, index) => {
+                  if (
+                    item.break === "breakfast" ||
+                    item.break === "lunch" ||
+                    item.break === "dinner"
+                  ) {
+                    return (
+                      <IteneraryItem
+                        key={index}
+                        label={item.place}
+                        type="restaurant"
+                        price={item.distancePrice}
+                        item={index + 1}
+                        
                       />
                     );
                   }

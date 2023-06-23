@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./Itenerary-Item.module.scss";
-import { FaBeer, FaCoffee, FaKey, FaMap } from "react-icons/fa";
-function IteneraryItem({ item, label, type, day, time }) {
+import { FaBeer, FaCoffee, FaDollarSign, FaKey, FaMap, FaPeopleCarry } from "react-icons/fa";
+function IteneraryItem({ item, label, type, day, time ,price,people}) {
   const icons = {
     touristpoint: <FaMap className={styles.icon} />,
     restaurant: <FaCoffee className={styles.icon} />,
     hotel: <FaKey className={styles.icon} />,
+    //people:<FaPeopleCarry className={styles.icon}/>,
+    price:<FaDollarSign className={styles.icon}/>
   };
 
   return (
@@ -17,6 +19,17 @@ function IteneraryItem({ item, label, type, day, time }) {
         {icons[type]}
         <div className={styles.label}>{label}</div>
       </div>
+      {/*
+      <div className={styles.innerDiv}>
+        {icons[type]}
+        <div className={styles.people}>{people}</div>
+      </div>
+      
+      <div className={styles.innerDiv}>
+        <FaDollarSign/>
+        <div className={styles.price}>{price}</div>
+      </div>
+*/}
       <div className={styles.time}>{`Day ${day}, ${time}`}</div>
     </div>
   );
