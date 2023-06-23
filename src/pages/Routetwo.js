@@ -10,6 +10,7 @@ import Card from "../components/ui/Card";
 import IteneraryItem from "../components/ui/Itenerary-Item";
 import MapTest from "./maptest";
 import Mapview from "../components/ui/Mapview";
+import Button from "../components/ui/Button";
 //import Mapview from "../components/ui/Mapview"
 //import Map from "../components/ui/Map"
 
@@ -41,8 +42,10 @@ const Details = ({ route }) => {
             tagLine={"Starting point > Destination"}
             className={styles.result}
           />
-         
-         
+
+          <IteneraryItem
+           />
+          <div className={styles.food}>{"food"}</div>
           <Card className={`${styles.floatwindow} ${styles.scrollable}`}>
             <div className={styles.header}>
               <button
@@ -230,10 +233,7 @@ const Details = ({ route }) => {
                         key={index}
                         label={item.place}
                         type="hotel"
-                        
                         item={index + 1}
-                        
-                        
                         peopleCount={item.peopleCount}
                         price={item.price}
                       />
@@ -254,7 +254,6 @@ const Details = ({ route }) => {
                         type="restaurant"
                         price={item.distancePrice}
                         item={index + 1}
-                        
                       />
                     );
                   }

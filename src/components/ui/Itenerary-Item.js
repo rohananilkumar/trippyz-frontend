@@ -24,13 +24,15 @@ function IteneraryItem({ item, label, type, day, time ,price,people}) {
         {icons[type]}
         <div className={styles.people}>{people}</div>
       </div>
-      
+      */}
+      {price && (
       <div className={styles.innerDiv}>
-        <FaDollarSign/>
+        <FaDollarSign />
         <div className={styles.price}>{price}</div>
       </div>
-*/}
-      <div className={styles.time}>{`Day ${day}, ${time}`}</div>
+      )}
+
+      {time && <div className={styles.time}>{`Day ${day}, ${time}`}</div>}
     </div>
   );
 }
