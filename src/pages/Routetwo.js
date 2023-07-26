@@ -43,8 +43,17 @@ const Details = ({ route }) => {
             className={styles.result}
           />
 
-          <IteneraryItem
-           />
+          <Title
+            titlefirst={""}
+            titlesec={""}
+          //  tagLine={"Duration"}
+            className={styles.resultright}
+          
+          >
+              <div className={styles.ha}>{"dsfs"}</div>
+          </Title>
+          <Button
+          label={"ddsf"}/>
           <div className={styles.food}>{"food"}</div>
           <Card className={`${styles.floatwindow} ${styles.scrollable}`}>
             <div className={styles.header}>

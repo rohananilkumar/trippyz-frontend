@@ -361,7 +361,7 @@ const handleInputChange = (event) => {
               type={"number"}
             />
 
-            <h8 className={styles.inquiry}>Vehicle Type</h8>
+            <h8 className={styles.inquiry1}>Vehicle Type</h8>
             {/* <img src={percentage} alt="percentage" className={styles.percentage}/>*/}
             <select
               value={vehicleType}
