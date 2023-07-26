@@ -4,7 +4,9 @@ import DashboardLayout from "../components/layouts/DashboardLayout";
 import Sidebar from "../components/ui/Sidebar";
 import Title from "../components/ui/Title";
 import clock from "../assets/Icons/clock.svg";
-import money from "../assets/Icons/money.svg";
+import money from "../assets/Icons/dollar-sign.svg";
+import users from "../assets/Icons/users.svg";
+
 
 import Card from "../components/ui/Card";
 import IteneraryItem from "../components/ui/Itenerary-Item";
@@ -36,14 +38,39 @@ const Details = ({ route }) => {
         <div className={styles.dash}>
           <Sidebar />
           {!debugging && <Mapview coordinates={route.coordinates} />}
+          <div>
+            <Title
+              titlefirst={"Route"}
+              titlesec={"Result!"}
+              //tagLine={"Starting point > Destination"}
+              className={styles.result}
+            />
+            <div className={styles.start}>Starting</div>
+            <div className={styles.dest}> - Destination </div>
+            <div className={styles.route}>Route 1 through Warnabool</div>
 
-          <Title
-            titlefirst={"Route"}
-            titlesec={"Result!"}
-            tagLine={"Starting point > Destination"}
-            className={styles.result}
-          />
+            <div className={styles.timeline}>
+              <div className={styles.time}>
+                <img src={clock} className={styles.clock} />
+                3 days 21 hours
+              </div>
 
+              <div className={styles.budget}>
+                <img src={money} className={styles.money} />
+                5000
+              </div>
+
+              <div className={styles.user}>
+                <img src={users} className={styles.users} />
+                3
+              </div>
+            </div>
+            <div className={styles.basics}>
+              <div className={styles.foods}>Food</div>
+              <div className={styles.petrol}>Petrol</div>
+              <div className={styles.stay}>Stay</div>
+            </div>
+          </div>
           <IteneraryItem />
           <div className={styles.food}>{"food"}</div>
           <Card className={`${styles.floatwindow} ${styles.scrollable}`}>

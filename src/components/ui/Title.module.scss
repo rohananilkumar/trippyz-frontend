@@ -11,7 +11,7 @@
 }
 .firstline {
   display: grid;
-  margin-top: 5%;
+  margin-top: 2%;
 
   grid-template-columns: max-content max-content;
   gap: 1rem;
@@ -47,7 +47,7 @@
 }
 .title {
   position: absolute;
-  // left: 46%;
+  left: 46%;
   z-index: 800;
   width: 100%;
 }

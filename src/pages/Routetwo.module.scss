@@ -3,6 +3,86 @@
   display: grid;
   grid-template-columns: 30% 50%;
   gap: 3%;
+
+  .route{
+    position: absolute;
+    top: 14%;
+    left: 20%;
+    font-size: 1.2rem;
+         }
+    .start {
+      position: absolute;
+      top: 11%;
+      left: 20%;
+      font-size: 1.2rem;
+    }
+    .dest {
+      position: absolute;
+      top: 11%;
+      left: 24%;
+      color: #878605;
+      font-size: 1.2rem;
+    }
+
+    .timeline{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      top: 4%;
+      right: 5%;
+      font-size: 1rem;
+
+     .time{
+      .clock{
+        width: 3rem;
+        height: 1.5rem;
+      }
+     }
+
+      .budget{
+       .money{
+        width: 3rem;
+        height: 1.5rem;
+      }
+     }
+
+      .user{
+      .users{
+        width: 3rem;
+        height: 1.5rem;
+      }
+     }
+
+      
+      
+    }
+    .basics{
+      position:absolute;
+      display: flex;
+      top: 9%;
+      gap: 4rem;
+      right: 5%;
+      font-size: 1rem;
+
+   
+
+      .petrol{
+        border-radius: 1px;
+        border-color: #000000;
+        border-width: 0.15rem;
+        border-style: solid;
+      }
+
+     .stay {
+        border-radius: 1px;
+        border-color: #000000;
+        border-width: 0.15rem;
+        border-style: solid;
+            }
+    }
+   
 }
 .but {
   display: grid;
@@ -144,7 +224,7 @@
 }
 
 .result{
-  left: 15%;
+  left: 20%;
 }
 .totaltime{
   top: 0;

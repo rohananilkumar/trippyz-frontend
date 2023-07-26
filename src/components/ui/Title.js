@@ -9,7 +9,7 @@ const Title = ({ titlefirst, titlesec, tagLine, className }) => {
         <div className={styles.headersecond}>{titlesec}</div>
       </div>
       <div className={styles.tagLine}>{tagLine}</div>
-      asdfasdf
+      
     </div>
   );
 };
