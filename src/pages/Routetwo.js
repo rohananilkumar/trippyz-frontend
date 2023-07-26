@@ -27,14 +27,15 @@ const Details = ({ route }) => {
     setDisplayLocations(false);
     setDisplayBudget(true);
   };
+  const debugging = true;
   return (
     <>
-      {!route && "Loading"}
+      {!route && !debugging && "Loading"}
 
-      {route && (
+      {(route || debugging) && (
         <div className={styles.dash}>
           <Sidebar />
-          <Mapview coordinates={route.coordinates} />
+          {!debugging && <Mapview coordinates={route.coordinates} />}
 
           <Title
             titlefirst={"Route"}
@@ -43,17 +44,7 @@ const Details = ({ route }) => {
             className={styles.result}
           />
 
-          <Title
-            titlefirst={""}
-            titlesec={""}
-          //  tagLine={"Duration"}
-            className={styles.resultright}
-          
-          >
-              <div className={styles.ha}>{"dsfs"}</div>
-          </Title>
-          <Button
-          label={"ddsf"}/>
+          <IteneraryItem />
           <div className={styles.food}>{"food"}</div>
           <Card className={`${styles.floatwindow} ${styles.scrollable}`}>
             <div className={styles.header}>
@@ -76,160 +67,75 @@ const Details = ({ route }) => {
             </div>
             {displayLocations && (
               <>
-                {/*
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="touristpoint"
-                  day={2}
-                  item={1}
-                  time={"3.30pm"}
-                />
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="touristpoint"
-                  day={2}
-                  item={2}
-                  time={"3.30pm"}
-                />
-
-                <div className={styles.header}>
-                  <div className={styles.text}>Restaurant</div>
-                </div>
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="restaurant"
-                  day={2}
-                  item={1}
-                  time={"3.30pm"}
-                />
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="restaurant"
-                  day={2}
-                  item={2}
-                  time={"3.30pm"}
-                />
-
-                <div className={styles.header}>
-                  <div className={styles.text}>Hotels</div>
-                </div>
-
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="hotel"
-                  day={2}
-                  item={1}
-                  time={"3.30pm"}
-                />
-
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="hotel"
-                  day={2}
-                  item={2}
-                  time={"3.30pm"}
-                />
-            */}
-                {/*
-                {route.generatedRoute.map((item, index) => (
-                  <IteneraryItem
-                    key={index}
-                    label={item.place}
-                    type="touristpoint"
-                    day={item.day}
-                    item={index + 1}
-                    time={`${item.hours}:${item.mins} ${
-                      item.hours >= 12 ? "PM" : "AM"
-                    }`}
-                  />
-                ))}
-              </>
-            )}
-            {displayBudget && (
-              <>
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="restaurant"
-                  day={2}
-                  item={1}
-                  time={"3.30pm"}
-                />
-
-                <IteneraryItem
-                  label="Wrranambool"
-                  type="restaurant"
-                  day={2}
-                  item={2}
-                  time={"3.30pm"}
-                />
-            */}
-
-                {route.generatedRoute.map((item, index) => {
-                  if (
-                    item.break !== "stay" &&
-                    item.break !== "breakfast" &&
-                    item.break !== "lunch" &&
-                    item.break !== "dinner"
-                  ) {
-                    return (
-                      <IteneraryItem
-                        key={index}
-                        label={item.place}
-                        type="touristpoint"
-                        day={item.day}
-                        item={index + 1}
-                        time={`${item.hours || ""}:${item.mins || ""} ${
-                          item.hours >= 12 ? "PM" : "AM"
-                        }`}
-                      />
-                    );
-                  }
-                })}
+                {!debugging &&
+                  route.generatedRoute.map((item, index) => {
+                    if (
+                      item.break !== "stay" &&
+                      item.break !== "breakfast" &&
+                      item.break !== "lunch" &&
+                      item.break !== "dinner"
+                    ) {
+                      return (
+                        <IteneraryItem
+                          key={index}
+                          label={item.place}
+                          type="touristpoint"
+                          day={item.day}
+                          item={index + 1}
+                          time={`${item.hours || ""}:${item.mins || ""} ${
+                            item.hours >= 12 ? "PM" : "AM"
+                          }`}
+                        />
+                      );
+                    }
+                  })}
 
                 <div className={styles.header}>
                   <div className={styles.text}>Restaurants</div>
                 </div>
 
-                {route.generatedRoute.map((item, index) => {
-                  if (
-                    item.break === "breakfast" ||
-                    item.break === "lunch" ||
-                    item.break === "dinner"
-                  ) {
-                    return (
-                      <IteneraryItem
-                        key={index}
-                        label={item.place}
-                        type="restaurant"
-                        day={item.day}
-                        item={index + 1}
-                        time={`${item.hours}:${item.mins} ${
-                          item.hours >= 12 ? "PM" : "AM"
-                        }`}
-                      />
-                    );
-                  }
-                })}
+                {!debugging &&
+                  route.generatedRoute.map((item, index) => {
+                    if (
+                      item.break === "breakfast" ||
+                      item.break === "lunch" ||
+                      item.break === "dinner"
+                    ) {
+                      return (
+                        <IteneraryItem
+                          key={index}
+                          label={item.place}
+                          type="restaurant"
+                          day={item.day}
+                          item={index + 1}
+                          time={`${item.hours}:${item.mins} ${
+                            item.hours >= 12 ? "PM" : "AM"
+                          }`}
+                        />
+                      );
+                    }
+                  })}
 
                 <div className={styles.header}>
                   <div className={styles.text}>Hotels</div>
                 </div>
-                {route.generatedRoute.map((item, index) => {
-                  if (item.break === "stay") {
-                    return (
-                      <IteneraryItem
-                        key={index}
-                        label={item.place}
-                        type="hotel"
-                        day={item.day}
-                        item={index + 1}
-                        time={`${item.hours}:${item.mins} ${
-                          item.hours >= 12 ? "PM" : "AM"
-                        }`}
-                      />
-                    );
-                  }
-                })}
+                {!debugging &&
+                  route.generatedRoute.map((item, index) => {
+                    if (item.break === "stay") {
+                      return (
+                        <IteneraryItem
+                          key={index}
+                          label={item.place}
+                          type="hotel"
+                          day={item.day}
+                          item={index + 1}
+                          time={`${item.hours}:${item.mins} ${
+                            item.hours >= 12 ? "PM" : "AM"
+                          }`}
+                        />
+                      );
+                    }
+                  })}
               </>
             )}
 
